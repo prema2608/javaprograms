@@ -1,5 +1,6 @@
 package com.bridgelabz.util;
 
+import java.io.PrintWriter;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -203,6 +204,106 @@ public int couponNumber(int n)
   
   //2D Array
 
+public static int[][] arrayInt(int m,int n)
+{
+	int a[][]=new int[m][n];
+	FunctionalUtility u=new FunctionalUtility();  
+	Scanner sc = new Scanner(System.in);
+	System.out.println();
+	System.out.println("Integer Array");
+
+	for(int i = 0; i<m; i++)
+	{
+		for (int j = 0; j<n; j++)
+	    {
+			a[i][j] = sc.nextInt();
+	    }   
+	}
+	return a;
+}
+
+public static double[][] arrayDouble(int m,int n)
+{
+	double b[][]=new double[m][n];
+	FunctionalUtility u=new FunctionalUtility(); 
+	Scanner sc = new Scanner(System.in);
+	System.out.println();
+	System.out.println("Double Array");
+
+	for(int i = 0; i<m; i++)
+	{
+		for (int j = 0; j<n; j++)
+	    {
+			b[i][j] = sc.nextDouble();
+	    }   
+	}
+	return b;
+}
+
+public static String[][] arrayBoolean(int m,int n)
+{
+String c[][]=new String[m][n];
+FunctionalUtility  u=new FunctionalUtility();    
+Scanner sc = new Scanner(System.in);
+System.out.println();
+System.out.println("Boolean Array");
+
+	for(int i = 0; i<m; i++)
+	{
+		for (int j = 0; j<n; j++)
+		{
+			c[i][j] = sc.next();
+		}   
+	}
+return c;
+}
+
+
+public static void display(int[][]a,double[][]b,String[][]c,int m,int n)
+{
+PrintWriter pw=new PrintWriter(System.out,true);
+
+// integers
+System.out.println();
+pw.println("2D ARRAY INTEGER");
+
+for(int i = 0; i<m; i++)
+{
+	for (int j = 0; j<n; j++)
+    {
+		pw.print("\t"+a[i][j]+" ");
+    } 
+ pw.println("\t");
+}
+
+//double
+System.out.println();
+pw.println("2D ARRAY DOUBLE");
+	
+for(int i = 0; i<m; i++)
+{
+	for (int j = 0; j<n; j++)
+    {
+		pw.print("\t"+b[i][j]+" ");
+    } 
+pw.println("\t");
+}
+	 
+// boolean
+System.out.println();
+pw.println("2D ARRAY BOOLEAN");
+		
+for(int i = 0; i<m; i++)
+{
+	for (int j = 0; j<n; j++)
+	{
+		pw.print("\t"+c[i][j]+" ");
+	} 
+pw.println("\t");
+}
+}
+
+
 //sumof3AddsTo-0 
 
 
@@ -217,7 +318,7 @@ public int couponNumber(int n)
 			{
 				for(k=j+1;k<length;k++)
 				{
-					// printing distinct triples (i, j, k) where a[i] + a[j] + a[k] = 0
+					
 					if (b[i] + b[j] + b[k] == 0)
 					{
 						System.out.println(b[i] + " " + b[j] + " " + b[k]);
@@ -226,21 +327,154 @@ public int couponNumber(int n)
 				}
 			}
 		}
-		// return number of distinct triplets (i, j, k) such that a[i] + a[j] + a[k] = 0
+		
 		return count;
 	}
 
+
+
+//StopWatch
+
+public long startTimer=0;
+public long stopTimer=0;
+public long elapsed;
+
+
+public void startTime()
+{
+	startTimer=System.currentTimeMillis();
+	System.out.println("Start Time is: "+startTimer);
+}
+
+
+public void stopTime()
+{
+	stopTimer=System.currentTimeMillis();
+	System.out.println("Stop Time is: "+stopTimer);
+}
+
+public long ElapsedTime()
+{
+	elapsed=stopTimer-startTimer;
+	return elapsed;
 }
 
 
 
 
-  
+//Distance of tw0 points
+
+
+public void distanceOfPoints()
+
+{
+	 int x1,x2,y1,y2;
+	 
+     double dis;
+
+     Scanner sc=new Scanner(System.in);
+
+     System.out.println("enter x1 point");
+
+         x1=sc.nextInt();
+
+         System.out.println("enter y1 point");
+
+         y1=sc.nextInt();
+
+     System.out.println("enter x2 point");
+
+         x2=sc.nextInt();
+
+     System.out.println("enter y2 point");
+
+         y2=sc.nextInt();
+	    
+ dis=Math.sqrt((x2-x1)*(x2-x1) + (y2-y1)*(y2-y1));
+	    	 	    
+       System.out.println("distance btw the"+"["+x1+","+y1+"]&"+"["+x2+","+y2+"]="+dis);
+
+	
+	
+}
+
+
+
+//Quadratic Equation
+
+
+public void quadraticEqu()
+{
+    int a, b, c;
+
+    double root1, root2, d;
+
+    Scanner s = new Scanner(System.in);
+
+    System.out.println("Given quadratic equation:ax^2 + bx + c");
+
+    System.out.print("Enter a:");
+
+    a = s.nextInt();
+
+    System.out.print("Enter b:");
+
+    b = s.nextInt();
+
+    System.out.print("Enter c:");
+
+    c = s.nextInt();
+
+    System.out.println("Given quadratic equation:"+a+"x^2 + "+b+"x + "+c);
+
+    d = b * b - 4 * a * c;
+
+    if(d > 0)
+
+    {
+
+        System.out.println("Roots are real and unequal");
+
+        root1 = (- b + Math.sqrt(d))/(2*a);
+
+        root2 = (-b - Math.sqrt(d))/(2*a);
+
+        System.out.println("First root is:"+root1);
+
+        System.out.println("Second root is:"+root2);
+
+    }
+
+    else if(d == 0)
+
+    {
+
+        System.out.println("Roots are real and equal");
+
+        root1 = (-b+Math.sqrt(d))/(2*a);
+
+        System.out.println("Root:"+root1);
+
+    }
+
+    else
+
+    {
+
+        System.out.println("Roots are imaginary");
+
+    }
+
+
+	
+	
+	
+}
 
 
 
 		
-		
+}	
 		
 		
 		
