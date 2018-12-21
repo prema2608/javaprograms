@@ -205,31 +205,31 @@ public int couponNumber(int n)
 
 //sumof3AddsTo-0 
 
-public void SumOf3AddsToZero(int [] a,int n)
-{ 
-	boolean flag=false;
-	
-	for(int i=0;i<n-2;i++)
-	{
-		for(int j=i+1;j<n-1;j++)
-		{
 
-			for(int k=j+1;k<n;k++)
+
+	public static int findDiffTriplet(int b[],int length)
+	{
+		System.out.println();
+		int i,j,k,count=0;
+		for(i=0;i<length;i++)
+		{
+			for(j=i+1;j<length;j++)
 			{
-				if(a[i]+a[j]+a[k]==0)
+				for(k=j+1;k<length;k++)
 				{
-					System.out.println("true");
-					flag=true;
+					// printing distinct triples (i, j, k) where a[i] + a[j] + a[k] = 0
+					if (b[i] + b[j] + b[k] == 0)
+					{
+						System.out.println(b[i] + " " + b[j] + " " + b[k]);
+						count++;
+					}
 				}
-				
 			}
 		}
+		// return number of distinct triplets (i, j, k) such that a[i] + a[j] + a[k] = 0
+		return count;
 	}
-	
-	if(flag==false){
-		System.out.println("false");
-	}
-}
+
 }
 
 

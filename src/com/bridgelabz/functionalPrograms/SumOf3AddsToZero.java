@@ -1,31 +1,29 @@
 package com.bridgelabz.functionalPrograms;
-
+import com.bridgelabz.util.FunctionalUtility;
 import java.util.Scanner;
 
 import com.bridgelabz.util.FunctionalUtility;
 
 public class SumOf3AddsToZero 
 {
-  public static void main(String[] args) 
-  {
-	  System.out.println("Enter the Array size");
-		Scanner sc=new Scanner(System.in);
-		FunctionalUtility utility=new FunctionalUtility();
-		int num=sc.nextInt();
-		int a[]=new int[num];
-		for(int i=0;i<num;i++)
-		{
-			a[i]=sc.nextInt();
-		}
-     int n=a.length;
-		utility.SumOf3AddsToZero(a,n);
-		//if(count==0)
-		//	System.out.println("entered array has triplet numbers");
-		//else
-		//	System.out.println("entered array not has any triplet numbers");
+    public static void main(String[] args) 
+    {
+	FunctionalUtility u1=new  FunctionalUtility();
+     Scanner sc = new Scanner(System.in);
+	System.out.print("Enter Size of Array :");
+	int size=sc.nextInt();
+	int arr[]=new int [size];
+
+	for(int i=0;i<arr.length;i++)
+	{
+		System.out.print("Enter "+(i+1)+" Value :");
+		arr[i]=sc.nextInt();
 	}
 
-	  
+	 
+	int sum=u1.findDiffTriplet(arr,size);//pass the arguments to method 1
+	System.out.println("No.of Tripltes :"+sum);
+System.out.println();
 }
-	
-
+}
+  
