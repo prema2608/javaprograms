@@ -1,20 +1,20 @@
 package com.bridgelabz.AlgorithmPrograms;
 
-import java.util.Scanner;
-
 import com.bridgelabz.util.AlgorithmUtility;
 /*
 *Created by: prema.s
 *Date: 20/12/2018.
-*Purpose: to find the prime no. from 0 to 1000*/
-public class PrimeNumbers 
+*Purpose: to find the monthly payment using monthly payments you
+* would have to make over Y years to pay off a P principal 
+*loan amount at R per cent interest compounded monthly.*/
+public class MonthlyPayment 
 {
+	
 	public static void main(String[] args) 
 	{
 		AlgorithmUtility u = new AlgorithmUtility();
-		Scanner sc = new Scanner(System.in);
 		//calling the method
-		u.primeNumbers();
+		u.monthlyPayment();
 		
 	}
 

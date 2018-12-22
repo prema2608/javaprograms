@@ -8,12 +8,11 @@ import com.bridgelabz.functionalPrograms.*;
 public class FunctionalUtility
 {
 //replacestring
+	//method to replace string with String as input
 	public void Replacestring(String str1)
 	{
 
 		Scanner s = new Scanner(System.in);
-		
-	
 	String	s1= s.nextLine();
 		
 		if(s1.length()>=3) 
@@ -29,6 +28,7 @@ public class FunctionalUtility
 	}
 	//flipcoin
 	
+	//method  with integer as input
 	public void flipcoin(int n)
 	{
 		
@@ -54,6 +54,7 @@ public class FunctionalUtility
 		
 		
 //leapyear
+	
 	public void Leapyear(int n)
 	{
 		 boolean flag = false;
@@ -122,6 +123,7 @@ public class FunctionalUtility
 				
 			}
 		}
+		//brute force
 	  if(n>2)
 	  {
 		  System.out.println(n);
@@ -145,14 +147,16 @@ public class FunctionalUtility
 		}
 
 	}
-//gambler
   
+  
+  //(
+//gambler ( not sure)
 public void gamblerWinLoss(int s,int g,int t)
 {
 	int win =0,loss=0,j=t;
 	Random r=new Random();
 
-	while(g-->0 && t-->0)
+	while(j==0 && t==0)
 	{
 		int n=r.nextInt(2);
 		if(n==0)
@@ -182,24 +186,26 @@ public void gamblerWinLoss(int s,int g,int t)
 
 public int couponNumber(int n)
 {
-	boolean[] isCollected = new boolean[n];  
+	boolean[] collect= new boolean[n];  
 	int count = 0;                           
-	int distinct = 0;                        
-	while (distinct < n) 
+	int dist = 0;                        
+	while (dist< n) 
 	{
 		Random r=new Random();
-		int value =r.nextInt(n);// (int) (Math.random() * n);  
+		int value =r.nextInt(n);
 		count++;                                 
-		if (isCollected[value]==false) 
+		if (collect[value]==false) 
 		{
-			distinct++;
-			System.out.println(distinct);
-			isCollected[value] = true;
+			dist++;
+			System.out.println(dist);
 		}
-	}
+			else 
+			{
+			   collect[value] = true;
+			}
+   	}
 
-
-	return  count;
+  return  count;
 }
   
   //2D Array
@@ -305,9 +311,7 @@ pw.println("\t");
 
 
 //sumof3AddsTo-0 
-
-
-
+//method to find the triplets
 	public static int findDiffTriplet(int b[],int length)
 	{
 		System.out.println();
@@ -456,25 +460,35 @@ public void quadraticEqu()
         System.out.println("Root:"+root1);
 
     }
-
-    else
-
-    {
-
-        System.out.println("Roots are imaginary");
-
-    }
-
-
-	
-	
-	
 }
 
 
 
+// WindChill
+
+public void windChill()
+{
+	Scanner sc = new Scanner(System.in);
+
+	System.out.print("Enter the temp in Fahrenheit " +
+		"between -58ºF and 41ºF: ");
+	double temp= sc.nextDouble();
+	System.out.print("Enter the wind speed(v)>=2: ");
+	
+	double v = sc.nextDouble();
+
+    //formula
+	double wc = 35.74 + 0.6215 * temp -
+							 35.75 * Math.pow(v, 0.16) +
+							 0.4275 * temp* Math.pow(v, 0.16);
+
+	System.out.println("The wind chill index is " + wc);
+}
+}
+
+
 		
-}	
+	
 		
 		
 		

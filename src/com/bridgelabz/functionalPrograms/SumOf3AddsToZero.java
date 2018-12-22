@@ -3,7 +3,12 @@ import com.bridgelabz.util.FunctionalUtility;
 import java.util.Scanner;
 
 import com.bridgelabz.util.FunctionalUtility;
-
+/*
+*Created by: prema.s
+*Date: 20/12/2018.
+*Purpose: A program with cubic running time. Read in N integers 
+*and counts the   number of triples that sum to exactly 0.
+*/
 public class SumOf3AddsToZero 
 {
     public static void main(String[] args) 
@@ -20,8 +25,8 @@ public class SumOf3AddsToZero
 		arr[i]=sc.nextInt();
 	}
 
-	 
-	int sum=u1.findDiffTriplet(arr,size);//pass the arguments to method 1
+	//calling the method
+	int sum=u1.findDiffTriplet(arr,size);
 	System.out.println("No.of Tripltes :"+sum);
 System.out.println();
 }

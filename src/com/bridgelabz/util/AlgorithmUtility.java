@@ -15,6 +15,7 @@ public class AlgorithmUtility
 			if(s1.length() != s2.length())
 			{
 			  status = false;
+			  System.out.println("Enter the both the strings of same size");
 			}
 			else
 			{
@@ -96,6 +97,7 @@ public class AlgorithmUtility
 			{
 				if(a[i]>a[j])
 				{
+					//Swapping
 					temp=a[i];
 					a[i]=a[j];
 					a[j]=temp;
@@ -110,7 +112,147 @@ public class AlgorithmUtility
 		     System.out.println(a[i]);		
 		}
 }
+	// Insertion sort
+		
+	
+		public void insertionSort()
+		{
+			Scanner sc = new Scanner(System.in);
+			System.out.println("Enter no. of words to be printed: ");
+			int n=sc.nextInt();
+			 
+			String ary[]=new String[n];
+				
+			System.out.println("Enter the words: ");
+
+			for(int i=0;i<ary.length;i++)
+			{
+				ary[i]=sc.next();
+			}
+			System.out.println();
+		       
+			System.out.println("Sorted order is: ");
+			for(int i=0;i<ary.length;i++)
+			{
+				Arrays.sort(ary);
+				System.out.println(ary[i]);
+	       }
+			
+		}
+		
+		
+	
+	
+	
+	
+	
+	//monthly payment
+	
+	public void monthlyPayment()
+	{
+		Scanner sc = new Scanner(System.in);
+	    System.out.println("Enter the no. of years to pay off(y):");
+	    double y = sc. nextDouble();
+	    
+	    System.out.println("Enter the principal loan amount(p):");
+		double p = sc.nextDouble();
+		
+		System.out.println("Enter the compound intrest(R):");
+		double R = sc.nextDouble();
+		
+		double n = 12*y;
+		double r = R/(12*100);
+		//formula
+		
+		double Paymnt=  p*r/(1-Math.pow((1+r),(-n)));
+		
+		System.out.println("The calculated monthly payment is:"+Paymnt);
+	}
+	
+	//temperature conversion
+	
+	public void tempConversn() 
+	{
+		System.out.print("Enter the temperature in Fahrenheit: ");
+	    Scanner scanner=new Scanner(System.in);
+	    float fahrn=scanner.nextFloat();
+	    float cel=(fahrn-32)*5/9;
+	    System.out.println("Temperature in Celsius: "+cel);
+	    
+	    System.out.println();
+
+	    System.out.print("Enter the temperature in Celsius: "); 
+	    float celsius1=scanner.nextFloat();
+	    float fahrenheit1=(celsius1*9/5)+32;
+	    System.out.println("Temperature in Fahrenheit: "+fahrenheit1);
+	  }
+	
+	 // Day of Week
+	
+	public void dayOfWeek()
+	{ 
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter the month");
+		int m = sc.nextInt();
+		
+		System.out.println("Enter the day");
+		int d = sc.nextInt();
+		
+		System.out.println("Enter the year");
+		int y = sc.nextInt();
+		
+		   int y0 = y - (14 - m) / 12;
+	        int x = y0 + y0/4 - y0/100 +y0/400;
+	        int m0 = m + 12 * ((14 - m) / 12) - 2;
+	        int d0 = (d + x + 31 * m0 / 12) % 7;  
+	        int result = d0;
+	        if(result==0)
+	        {
+	        	System.out.println("the Day of the week is Sunday");
+	        }
+	        else if(result==1)
+	        {
+	        	System.out.println("the Day of the week is monday");
+	        } 
+	        
+	        else if(result==2)
+	        {
+	        	System.out.println("the Day of the week is Tuesday");
+	        } 
+	        else if(result==3)
+	        {
+	        	System.out.println("the Day of the week is wednesday");
+	        } 
+	        else if(result==4)
+	        {
+	        	System.out.println("the Day of the week is Thursday");
+	        } 
+	        else if(result==5)
+	        {
+	        	System.out.println("the Day of the week is Friday");
+	        } 
+	        else if(result==6)
+	        {
+	        	System.out.println("the Day of the week is Saturday");
+	        } 
+	        else
+	        {
+	        	System.out.println("invalid input");
+	        	
+	        }
+	}
+	
+	//Vending machine
+	public void vendingMachine()
+	{
 		
 	}
+	
+	}
+
+	
+	
+	
+	
 	
 

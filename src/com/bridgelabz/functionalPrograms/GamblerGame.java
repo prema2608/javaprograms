@@ -3,6 +3,11 @@ package com.bridgelabz.functionalPrograms;
 import java.util.Scanner;
 
 import com.bridgelabz.util.FunctionalUtility;
+/*
+*Created by: prema.s
+*Date: 20/12/2018.
+*Purpose:Print Number of Wins and Percentage of Win and Loss.
+ */
 
 public class GamblerGame
 {
@@ -17,6 +22,7 @@ public class GamblerGame
 	    System.out.println("Enter the totalTimes");
 	    int totalTimes=sc.nextInt();
 	    FunctionalUtility utility = new FunctionalUtility();
+	  //calling the method
 		utility.gamblerWinLoss(stack,goal,totalTimes);
 		
 	}

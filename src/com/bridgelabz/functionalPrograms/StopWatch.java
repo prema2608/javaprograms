@@ -3,7 +3,11 @@ package com.bridgelabz.functionalPrograms;
 import java.util.Scanner;
 
 import com.bridgelabz.util.FunctionalUtility;
-
+/*
+*Created by: prema.s
+*Date: 20/12/2018.
+*Purpose:To print the time that elapses between the start and end clicks
+ */
 public class StopWatch 
 {
 	public static void main(String[] args) 
@@ -20,6 +24,7 @@ public class StopWatch
 		sc.nextInt();
 		u.stopTime();
 
+		//calling the method
 		long l=u.ElapsedTime();
 		System.out.println();
 		System.out.println("Total Time Elapsed is:"+(l/1000)+" sec");

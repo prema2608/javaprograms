@@ -2,6 +2,11 @@ package com.bridgelabz.functionalPrograms;
 
 import com.bridgelabz.util.FunctionalUtility;
 import java.util.Scanner;
+/*
+*Created by: prema.s
+*Date: 18/12/2018.
+//*Purpose:  Take User Name as Input & Print the String with User Name 
+*/
 public class ReplaceString 
 {
 	public static void main(String[] args) 

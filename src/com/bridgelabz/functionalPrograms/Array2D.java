@@ -4,6 +4,12 @@ import java.util.Scanner;
 
 import com.bridgelabz.util.FunctionalUtility;
 
+/*
+*Created by: prema.s
+*Date: 21/12/2018.
+*Purpose: Print function to print 2 Dimensional Array. 
+*In Java use PrintWriter with OutputStreamWriter to print the output to the screen.**/
+
 public class Array2D 
 {
 	public static void main(String[] args)
@@ -21,7 +27,7 @@ public class Array2D
 		double [][] b = u.arrayDouble(m,n);
 		String [][] c = u.arrayBoolean(m,n);
 		        
-		//calling display method
+		//calling method
 		u.display(a,b,c,m,n);
 
 		

@@ -1,7 +1,11 @@
 package com.bridgelabz.functionalPrograms;
 
 import java.util.Scanner;
-
+/*
+*Created by: prema.s
+*Date: 20/12/2018.
+*Purpose: To print a table of the powers of 2 that are less than or equal to 2^N.
+*/
 public class PowerOf2
 {
 
