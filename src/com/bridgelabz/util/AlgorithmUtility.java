@@ -1,16 +1,110 @@
 package com.bridgelabz.util;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
+
+import com.bridgelabz.algorithmprograms.VendingMachine;
 
 public class AlgorithmUtility 
 {
+	
+	static Scanner sc = new Scanner(System.in);
+
+	
+	 public	static int intValue()
+		{
+			try 
+			{ 
+				
+			return sc.nextInt();	
+				
+			 }
+			catch(Exception e)
+			{
+				e.printStackTrace();
+				
+			}
+			return 0;
+		}
+	
+	 public	static double doubValue()
+		{
+			try 
+			{ 
+				
+			return sc.nextDouble();	
+				
+			 }
+			catch(Exception e)
+			{
+				e.printStackTrace();
+				
+			}
+			return 0.0;
+		}
+	
+	 public	static boolean boolValue()
+		{
+			try 
+			{ 
+				
+			return sc.nextBoolean();
+			 }
+			catch(Exception e)
+			{
+				e.printStackTrace();
+				
+			}
+			return false ;
+		}
+	 
+	 public	static float floatValue()
+		{
+			try 
+			{ 
+				
+			return sc.nextFloat();	
+				
+			 }
+			catch(Exception e)
+			{
+				e.printStackTrace();
+				
+			}
+			return 0;
+			
+		}
+	 public	static String stringValue()
+		{
+			try 
+			{ 
+				
+			return sc.next();	
+				
+			 }
+			catch(Exception e)
+			{
+				e.printStackTrace();
+				
+			}
+			return null ;
+		}
+	
+	
 	//Anagram of string
 	
-	public void anagramOfString(String s1, String s2)
+	
+	/**
+	 * @param s1
+	 * @param s2
+	 * @return
+	 */
+	public boolean anagramOfString(String s1, String s2)
 	{
 		
-	        boolean status = true;
+	        boolean status=true;
 	 
 			if(s1.length() != s2.length())
 			{
@@ -30,27 +124,23 @@ public class AlgorithmUtility
 			    status = Arrays.equals(string1, string2);
 			}
 			
+			return status;
+			
 	        
-			if(status)
-			{
-			    System.out.println(s1+" and "+s2+" are Anagrams");
-			}
-			else
-			{
-				System.out.println(s1+" and "+s2+" are not Anagrams");
-	        }
+			
 	}
 
 	//prime Numbers
 	
-	public void primeNumbers()
+	public static List<Integer> primeNumbers()
 	{
+		List<Integer> primeList = new ArrayList<>();
 		int i =0;
 	    int num =0;
 	       
 	       String  primeNumbers = "";
 
-	       for (i = 0; i <= 1000; i++)         
+	       for (i = 2; i <= 1000; i++)         
 	       { 		  	  
 	          int counter=0; 	  
 	          for(num =i; num>=1; num--)
@@ -62,13 +152,24 @@ public class AlgorithmUtility
 		  }
 		  if (counter ==2)
 		  {
-		     primeNumbers = primeNumbers + i + " ";
+			  primeList.add(i);
+		     //primeNumbers = primeNumbers + i + " ";
 		  }	
-	       }	
+	   }	
+	       
 	       System.out.println("Prime numbers from 0 to 1000 are :");
 	       System.out.println(primeNumbers);
+		return primeList;
+		
 	   }
 		
+	//anagram palindrome
+	
+
+	public static void anagramPalin(List<Integer> primeList)
+	{
+		
+	}
 	
 	
 	
@@ -78,12 +179,11 @@ public class AlgorithmUtility
 	public void bubbleSort()
 	{
 		int i,j,temp=0;
-	Scanner sc = new Scanner(System.in);
 	
 		System.out.println("Enter how many numbers to be sorted:");
-		int n=sc.nextInt();
+		int n=AlgorithmUtility.intValue();
 		int a[]=new int[n];
-		System.out.println();
+		
 		System.out.println("Enter value for "+n+" numbers:");
 
 		for(i=0;i<a.length;i++)       
@@ -117,9 +217,9 @@ public class AlgorithmUtility
 	
 		public void insertionSort()
 		{
-			Scanner sc = new Scanner(System.in);
+
 			System.out.println("Enter no. of words to be printed: ");
-			int n=sc.nextInt();
+			int n=AlgorithmUtility.intValue();
 			 
 			String ary[]=new String[n];
 				
@@ -127,7 +227,7 @@ public class AlgorithmUtility
 
 			for(int i=0;i<ary.length;i++)
 			{
-				ary[i]=sc.next();
+				ary[i]=AlgorithmUtility.stringValue();
 			}
 			System.out.println();
 		       
@@ -148,58 +248,44 @@ public class AlgorithmUtility
 	
 	//monthly payment
 	
-	public void monthlyPayment()
+	public double monthlyPayment(double y, double p, double r2)
 	{
-		Scanner sc = new Scanner(System.in);
-	    System.out.println("Enter the no. of years to pay off(y):");
-	    double y = sc. nextDouble();
-	    
-	    System.out.println("Enter the principal loan amount(p):");
-		double p = sc.nextDouble();
-		
-		System.out.println("Enter the compound intrest(R):");
-		double R = sc.nextDouble();
-		
+	  
 		double n = 12*y;
-		double r = R/(12*100);
+		double r = r2/(12*100);
 		//formula
 		
 		double Paymnt=  p*r/(1-Math.pow((1+r),(-n)));
 		
 		System.out.println("The calculated monthly payment is:"+Paymnt);
+		return Paymnt;
 	}
 	
 	//temperature conversion
 	
-	public void tempConversn() 
+	public float tempConversn(float fahrn, float cel, int choice) 
 	{
-		System.out.print("Enter the temperature in Fahrenheit: ");
-	    Scanner scanner=new Scanner(System.in);
-	    float fahrn=scanner.nextFloat();
-	    float cel=(fahrn-32)*5/9;
-	    System.out.println("Temperature in Celsius: "+cel);
-	    
-	    System.out.println();
+		float result = 0.0f;
+		if (choice == 1) 
+		{
+			result = (fahrn - 32) * 5 / 9;
+			return result;
+		} 
+		else 
+		{
+			result = (cel * 9 / 5) + 32;
 
-	    System.out.print("Enter the temperature in Celsius: "); 
-	    float celsius1=scanner.nextFloat();
-	    float fahrenheit1=(celsius1*9/5)+32;
-	    System.out.println("Temperature in Fahrenheit: "+fahrenheit1);
-	  }
+			return result;
+		}
+
+	}
+	
 	
 	 // Day of Week
 	
-	public void dayOfWeek()
-	{ 
-		Scanner sc = new Scanner(System.in);
-		System.out.println("Enter the month");
-		int m = sc.nextInt();
-		
-		System.out.println("Enter the day");
-		int d = sc.nextInt();
-		
-		System.out.println("Enter the year");
-		int y = sc.nextInt();
+	public boolean dayOfWeek(int m, int d, int y)
+	{
+		boolean flag = false;
 		
 		   int y0 = y - (14 - m) / 12;
 	        int x = y0 + y0/4 - y0/100 +y0/400;
@@ -240,19 +326,249 @@ public class AlgorithmUtility
 	        	System.out.println("invalid input");
 	        	
 	        }
+	        return flag;
 	}
+	
+	
+ 
+//merge sort
+
+	
+	public  void mergeSort(String array[],int low,int high)
+    {
+        int n=high-low;
+        if(n<=1)
+            return;
+        int mid=low+n/2;
+        mergeSort(array,low,mid);//recursive calling
+        mergeSort(array,mid,high);//recursive calling
+        String[] temparr=new String[n];
+        int i=low,j=mid;
+        for(int k=0;k<n;k++)
+        {
+            if(i==mid)
+                temparr[k]=array[j++];
+            else if(j==high)
+                temparr[k]=array[i++];
+            else if(array[j].compareToIgnoreCase(array[i])<0)
+                temparr[k]=array[j++];
+            else
+                temparr[k]=array[i++];
+        }
+
+        for(int k=0;k<n;k++)
+        {
+            array[low +k]=temparr[k];
+        }
+   }
 	
 	//Vending machine
-	public void vendingMachine()
-	{
-		
-	}
 	
-	}
+	public void vendingMachine(int money, int[] notes) {
+
+        int rem;
+        int i=0;
+        int total=0;
+
+        if(money==0)
+        {
+            System.out.println("no outputs");
+        }
+        else
+        { for(i=0;i<notes.length;i++)
+        {
+            if(money>=notes[i])
+            {
+                int calNotes=money/notes[i];
+                rem=money%notes[i];
+                money=rem;
+                total=total+calNotes;
+                System.out.println(notes[i]+ " Ruppee Notes:  "+calNotes);
+
+            }
+
+        }
+
+        System.out.println("Total numbet of notes are"+total);
+
+        }
+    }
+
+
+	
+	
+	//Square root of n	
+
+public static double getSqrt(double e,double c) 
+{
+     double t=c;
+     while(Math.abs(t - c/t) > e*t )
+{
+         t=((c/t)+t)/2;
+         System.out.println("Apprx sqrt is= "+t);
+     }
+     return t;
+
+ }
+
+//decimalTobinary
+public void deciToBin()
+{
+	
+	    	System.out.println("enter the number");
+	    	int n =AlgorithmUtility.intValue();
+	    	System.out.println(Integer.toBinaryString(n));
+	    	
+}
+	
+}
+
+	
+
+
+
+
 
 	
 	
 	
 	
-	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

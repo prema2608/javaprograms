@@ -1,4 +1,4 @@
-package com.bridgelabz.functionalPrograms;
+package com.bridgelabz.functionalprograms;
 
 import com.bridgelabz.util.FunctionalUtility;
 import java.util.Scanner;
@@ -15,7 +15,7 @@ public class ReplaceString
 	System.out.println("enter the usernme:");
 	String str1="hello ##username##,how r you?";
 		FunctionalUtility utility = new FunctionalUtility();
-	     utility.Replacestring(str1);
+	     utility.replaceString(str1);
 		
 	}
 }

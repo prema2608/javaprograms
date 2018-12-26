@@ -1,4 +1,4 @@
-package com.bridgelabz.functionalPrograms;
+package com.bridgelabz.functionalprograms;
 import com.bridgelabz.util.FunctionalUtility;
 import java.util.Scanner;
 
@@ -12,10 +12,22 @@ public class LeapYear
 	{
 		Scanner s=new Scanner(System.in);
 		System.out.println("enter the year:");
+		boolean flag;
+		
 		int n = s.nextInt();
 		FunctionalUtility utility = new FunctionalUtility();
 		//calling the method
-		utility.Leapyear(n);
+		flag = utility.leapYear(n);
+		
+		if(flag)
+		{
+			System.out.println("year "+n+" is a leap year");	
+		}
+		
+		else
+		{
+			System.out.println("year "+n+" is not a leap year");	
+		}
 	}
 
 }

@@ -1,4 +1,4 @@
-package com.bridgelabz.functionalPrograms;
+package com.bridgelabz.functionalprograms;
 import com.bridgelabz.util.FunctionalUtility;
 import java.util.Scanner;
 

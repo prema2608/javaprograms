@@ -1,4 +1,4 @@
-package com.bridgelabz.AlgorithmPrograms;
+package com.bridgelabz.algorithmprograms;
 
 import java.util.Scanner;
 
@@ -12,10 +12,20 @@ public class DayOfWeek
 {
 	public static void main(String[] args) 
 	{
+		boolean flag;
 		AlgorithmUtility u = new AlgorithmUtility();
 		//calling the method
-		u.dayOfWeek();
 		
+		
+		System.out.println("Enter the month");
+		int m=AlgorithmUtility.intValue();
+		
+		System.out.println("Enter the day");
+		int d =AlgorithmUtility.intValue();
+		
+		System.out.println("Enter the year");
+		int y =AlgorithmUtility.intValue();
+		flag=u.dayOfWeek(m, d, y);
 		
 	}
 	

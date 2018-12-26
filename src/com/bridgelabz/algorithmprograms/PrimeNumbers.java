@@ -1,5 +1,7 @@
-package com.bridgelabz.AlgorithmPrograms;
+package com.bridgelabz.algorithmprograms;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 import com.bridgelabz.util.AlgorithmUtility;
@@ -11,11 +13,11 @@ public class PrimeNumbers
 {
 	public static void main(String[] args) 
 	{
-		AlgorithmUtility u = new AlgorithmUtility();
-		Scanner sc = new Scanner(System.in);
+		List<Integer> primeList = new ArrayList<>();
+		//AlgorithmUtility u = new AlgorithmUtility();
 		//calling the method
-		u.primeNumbers();
-		
+		primeList=AlgorithmUtility.primeNumbers();
+		System.out.println(primeList);
 	}
 
 }

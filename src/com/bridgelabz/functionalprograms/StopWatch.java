@@ -1,4 +1,4 @@
-package com.bridgelabz.functionalPrograms;
+package com.bridgelabz.functionalprograms;
 
 import java.util.Scanner;
 
@@ -25,7 +25,7 @@ public class StopWatch
 		u.stopTime();
 
 		//calling the method
-		long l=u.ElapsedTime();
+		long l=u.elapsedTime();
 		System.out.println();
 		System.out.println("Total Time Elapsed is:"+(l/1000)+" sec");
 		

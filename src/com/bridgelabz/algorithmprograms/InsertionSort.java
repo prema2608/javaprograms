@@ -1,4 +1,4 @@
-package com.bridgelabz.AlgorithmPrograms;
+package com.bridgelabz.algorithmprograms;
 
 import com.bridgelabz.util.AlgorithmUtility;
 /*

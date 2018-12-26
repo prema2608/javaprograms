@@ -4,12 +4,13 @@ import java.io.PrintWriter;
 import java.util.Random;
 import java.util.Scanner;
 
-import com.bridgelabz.functionalPrograms.*;
+import com.bridgelabz.functionalprograms.*;
 public class FunctionalUtility
 {
+	
 //replacestring
 	//method to replace string with String as input
-	public void Replacestring(String str1)
+	public void replaceString(String str1)
 	{
 
 		Scanner s = new Scanner(System.in);
@@ -29,7 +30,7 @@ public class FunctionalUtility
 	//flipcoin
 	
 	//method  with integer as input
-	public void flipcoin(int n)
+	public void flipCoin(int n)
 	{
 		
 		  int head=0,tail=0;
@@ -55,7 +56,7 @@ public class FunctionalUtility
 		
 //leapyear
 	
-	public void Leapyear(int n)
+	public boolean leapYear(int n)
 	{
 		 boolean flag = false;
 		 	 
@@ -79,15 +80,8 @@ public class FunctionalUtility
 		 {
 			 flag=false;
 		 }
-		if(flag)
-		{
-			System.out.println("year "+n+" is a leap year");	
-		}
 		
-		else
-		{
-			System.out.println("year "+n+" is not a leap year");	
-		}
+		return flag;
 	}
 
 	//power of 2
@@ -110,7 +104,7 @@ public class FunctionalUtility
 	
 	
 	//prime factors
-	public void PrimeFactors(int n)
+	public void primeFactors(int n)
 
 	{
 	
@@ -357,7 +351,7 @@ public void stopTime()
 	System.out.println("Stop Time is: "+stopTimer);
 }
 
-public long ElapsedTime()
+public long elapsedTime()
 {
 	elapsed=stopTimer-startTimer;
 	return elapsed;
@@ -484,7 +478,41 @@ public void windChill()
 
 	System.out.println("The wind chill index is " + wc);
 }
+
+
+
+//permutation of string using recursive func
+/// copied
+
+	// Utility function to swap two characters in a character array
+	public static void swap(char[] ch, int i, int j)
+	{
+		char temp = ch[i];
+		ch[i] = ch[j];
+		ch[j] = temp;
+	}
+
+	// Recursive function to generate all permutations of a String
+	 public static void permutations(char[] ch, int currentIndex)
+	{
+		if (currentIndex == ch.length - 1) 
+		{
+			System.out.println(String.valueOf(ch));
+		}
+
+		for (int i = currentIndex; i < ch.length; i++)
+		{
+			swap(ch, currentIndex, i);
+			permutations(ch, currentIndex + 1);
+			swap(ch, currentIndex, i);
+		}
+	}
+
+//permutation using iterative method
+	 
+	 
 }
+
 
 
 		

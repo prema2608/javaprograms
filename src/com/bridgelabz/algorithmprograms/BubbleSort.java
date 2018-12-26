@@ -1,4 +1,4 @@
-package com.bridgelabz.AlgorithmPrograms;
+package com.bridgelabz.algorithmprograms;
 
 import java.util.Scanner;
 
@@ -13,7 +13,7 @@ public class BubbleSort
 public static void main(String[] args)
 {
 	AlgorithmUtility u= new AlgorithmUtility();
-	Scanner sc = new Scanner(System.in);
+
 	//calling the method
 	u.bubbleSort();
 }
