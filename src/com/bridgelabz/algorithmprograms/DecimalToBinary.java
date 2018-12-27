@@ -13,4 +13,4 @@ public class DecimalToBinary
 	}
 
 
-//11010102
+//1101010

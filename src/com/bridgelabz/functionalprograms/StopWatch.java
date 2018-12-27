@@ -17,15 +17,19 @@ public class StopWatch
 
 		System.out.println("Press '1' to Start Time: ");
 	    sc.nextInt();
-		u.startTime();
+	    
+		long startTimer=FunctionalUtility.startTime();
+		
 
 		System.out.println();
 		System.out.println("Press '0' to Stop Time: ");
 		sc.nextInt();
-		u.stopTime();
+		
+	long stopTimer=	FunctionalUtility.stopTime();
+	System.out.println("Stop Time is: "+stopTimer);
 
 		//calling the method
-		long l=u.elapsedTime();
+		long l=FunctionalUtility.elapsedTime(stopTimer,startTimer);
 		System.out.println();
 		System.out.println("Total Time Elapsed is:"+(l/1000)+" sec");
 		

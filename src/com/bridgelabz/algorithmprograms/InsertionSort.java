@@ -11,6 +11,18 @@ public class InsertionSort
 	{
 		AlgorithmUtility u = new AlgorithmUtility();
 		//calling the method
-		u.insertionSort();
+		boolean insert;
+		System.out.println("Enter no. of words to be printed: ");
+		int n=AlgorithmUtility.intValue();
+		 
+		String ary[]=new String[n];
+			
+		System.out.println("Enter the words: ");
+
+		for(int i=0;i<ary.length;i++)
+		{
+			ary[i]=AlgorithmUtility.stringValue();
+		}
+	insert=	u.insertionSort(ary);
 	}
 }

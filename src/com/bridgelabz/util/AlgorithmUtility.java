@@ -176,24 +176,13 @@ public class AlgorithmUtility
 	//Bubble sort
 	
 	
-	public void bubbleSort()
+	public boolean bubbleSort(int a[])
 	{
-		int i,j,temp=0;
-	
-		System.out.println("Enter how many numbers to be sorted:");
-		int n=AlgorithmUtility.intValue();
-		int a[]=new int[n];
-		
-		System.out.println("Enter value for "+n+" numbers:");
-
-		for(i=0;i<a.length;i++)       
+		boolean bubb = false;
+		int temp=0;
+		for(int i=0;i<a.length;i++)         
 		{
-		    a[i]=sc.nextInt();		
-		}
-
-		for(i=0;i<a.length;i++)         
-		{
-			for(j=i+1;j<a.length;j++)
+			for(int j=i+1;j<a.length;j++)
 			{
 				if(a[i]>a[j])
 				{
@@ -204,32 +193,29 @@ public class AlgorithmUtility
 				}
 			}
 		}
-		System.out.println();
+	
 		System.out.println("The sorted order is:");
 
-		for(i=0;i<a.length;i++)      
+		for(int i=0;i<a.length;i++)      
 		{
 		     System.out.println(a[i]);		
 		}
+		return bubb;
 }
+	
+	
+	
+	
+	
+	
 	// Insertion sort
 		
 	
-		public void insertionSort()
+		public boolean  insertionSort(String[] ary)
 		{
 
-			System.out.println("Enter no. of words to be printed: ");
-			int n=AlgorithmUtility.intValue();
-			 
-			String ary[]=new String[n];
-				
-			System.out.println("Enter the words: ");
-
-			for(int i=0;i<ary.length;i++)
-			{
-				ary[i]=AlgorithmUtility.stringValue();
-			}
-			System.out.println();
+			
+		       boolean insert;
 		       
 			System.out.println("Sorted order is: ");
 			for(int i=0;i<ary.length;i++)
@@ -237,6 +223,7 @@ public class AlgorithmUtility
 				Arrays.sort(ary);
 				System.out.println(ary[i]);
 	       }
+			return false;
 			
 		}
 		
@@ -283,10 +270,8 @@ public class AlgorithmUtility
 	
 	 // Day of Week
 	
-	public boolean dayOfWeek(int m, int d, int y)
+	public int dayOfWeek(int m, int d, int y)
 	{
-		boolean flag = false;
-		
 		   int y0 = y - (14 - m) / 12;
 	        int x = y0 + y0/4 - y0/100 +y0/400;
 	        int m0 = m + 12 * ((14 - m) / 12) - 2;
@@ -326,7 +311,7 @@ public class AlgorithmUtility
 	        	System.out.println("invalid input");
 	        	
 	        }
-	        return flag;
+	        return result;
 	}
 	
 	
@@ -420,8 +405,108 @@ public void deciToBin()
 	    	System.out.println(Integer.toBinaryString(n));
 	    	
 }
+
+
+
+
+///BinarySearch methods
+
+public boolean binaryOfInt(int[] array, int search, int n)
+{
+	boolean binInt = false;
 	
+	  int  first  = 0;
+	   int last   = n - 1;
+	   int middle = (first + last)/2;
+	 bubbleSort(array);
+	    while( first <= last )
+	    {
+	      if ( array[middle] < search )
+	        first = middle + 1;    
+	      else if ( array[middle] == search )
+	      {
+	        System.out.println(search + " found at location " + (middle + 1) + ".");
+	        break;
+	      }
+	      else
+	         last = middle - 1;
+	 
+	      middle = (first + last)/2;
+	   }
+	   if (first > last)
+	      System.out.println(search + " isn't present in the list.\n");
+	return binInt;
+	  }
+
+//binaryOfString
+
+public void binaryOfString(String[] array, String search)
+{
+	
+	//boolean binInt = false;
+
+	  int first  =0;
+	   int last   = array.length;
+	   int middle = (first+last)/2;
+	   insertionSort(array);
+	    while( first <= last )
+	    {
+	      if (array[middle].compareTo(search)<0)
+	        first = middle + 1;    
+	      else if ( array[middle].compareTo(search)==0)
+	      {
+	        System.out.println(search + " found at location " + (middle + 1) + ".");
+	        break;
+	      }
+	      else
+	         last = middle - 1;
+	 
+	      middle = (first + last)/2;
+	   }
+	   if (first > last)
+	      System.out.println(search + " isn't present in the list.\n");
+
+	  }
+
+//bubble sort for string
+
+
+public boolean bubbleSort(String a[])
+{
+	boolean bubb1 = false;
+	String temp=null;
+	for(int i=0;i<a.length;i++)         
+	{
+		for(int j=i+1;j<a.length;j++)
+		{
+			if(a[i].compareTo(a[j])>0)
+			{
+				//Swapping
+				temp=a[i];
+				a[i]=a[j];
+				a[j]=temp;
+			}
+		}
+	}
+	System.out.println("The sorted order is:");
+
+	for(int i=0;i<a.length;i++)      
+	{
+	     System.out.println(a[i]);		
+	}
+
+
+	return bubb1;
+
+
+
 }
+}
+	
+	
+	
+
+
 
 	
 

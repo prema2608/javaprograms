@@ -14,8 +14,21 @@ public static void main(String[] args)
 {
 	AlgorithmUtility u= new AlgorithmUtility();
 
+	
+	boolean bubb;
+
+	System.out.println("Enter how many numbers to be sorted:");
+	int n=AlgorithmUtility.intValue();
+	int a[]=new int[n];
+	
+	System.out.println("Enter value for "+n+" numbers:");
+
+	for(int i=0;i<a.length;i++)       
+	{
+	    a[i]=AlgorithmUtility.intValue();	
+	}
 	//calling the method
-	u.bubbleSort();
+	bubb=u.bubbleSort(a);
 }
 	
 }

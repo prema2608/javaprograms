@@ -333,27 +333,27 @@ pw.println("\t");
 
 //StopWatch
 
-public long startTimer=0;
-public long stopTimer=0;
-public long elapsed;
 
 
-public void startTime()
+
+public static long startTime()
 {
-	startTimer=System.currentTimeMillis();
+	long startTimer=System.currentTimeMillis();
 	System.out.println("Start Time is: "+startTimer);
+	return startTimer;
 }
 
 
-public void stopTime()
+public static long  stopTime()
 {
-	stopTimer=System.currentTimeMillis();
-	System.out.println("Stop Time is: "+stopTimer);
+	long stopTimer=System.currentTimeMillis();
+	
+	return stopTimer;
 }
 
-public long elapsedTime()
+public static long elapsedTime(long stopTimer,long startTimer)
 {
-	elapsed=stopTimer-startTimer;
+long elapsed=stopTimer-startTimer;
 	return elapsed;
 }
 

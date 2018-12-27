@@ -12,7 +12,7 @@ public class DayOfWeek
 {
 	public static void main(String[] args) 
 	{
-		boolean flag;
+		int result;
 		AlgorithmUtility u = new AlgorithmUtility();
 		//calling the method
 		
@@ -25,7 +25,7 @@ public class DayOfWeek
 		
 		System.out.println("Enter the year");
 		int y =AlgorithmUtility.intValue();
-		flag=u.dayOfWeek(m, d, y);
+		result=u.dayOfWeek(m, d, y);
 		
 	}
 	
