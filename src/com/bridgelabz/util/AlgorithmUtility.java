@@ -169,6 +169,8 @@ public class AlgorithmUtility
 	public static void anagramPalin(List<Integer> primeList)
 	{
 		
+		
+		
 	}
 	
 	
@@ -357,7 +359,7 @@ public class AlgorithmUtility
 
         if(money==0)
         {
-            System.out.println("no outputs");
+            System.out.println("INVALID INPUT");
         }
         else
         { for(i=0;i<notes.length;i++)
@@ -405,7 +407,6 @@ public void deciToBin()
 	    	System.out.println(Integer.toBinaryString(n));
 	    	
 }
-
 
 
 
@@ -498,13 +499,123 @@ public boolean bubbleSort(String a[])
 
 	return bubb1;
 
+}
 
 
+
+
+
+//find your number
+
+
+
+public void findNumber(String value,int low, int up, int mid, int count, int n)
+{
+	
+   	System.out.println("Is this the number you taught?:"+mid);
+	
+//   	System.out.println("If the number you taught is greater than " +mid+ " then enter HIGH");
+//   	System.out.println();
+//   System.out.println("If the number you taught is greater than " +mid+ " then enter LOW");
+//   System.out.println();
+//   System.out.println("If the number you taught is same as " +mid+ " then enter YES");
+//   	
+	System.out.println("Enter your answer in 'yes' or 'high' or 'low'");
+	value=AlgorithmUtility.stringValue();
+   	do
+    {
+   	
+   		 if (value.equals("high"))
+        {
+			low= mid;
+			count++;
+			mid=(low+ up+1)/2;
+			findNumber(value,low,  up,  mid, count, n);
+        }
+   		 
+   		 else if(value.equals("low"))
+         {
+ 			up=mid;
+ 			count++;
+ 			mid=(low+ up+1)/2;
+ 			findNumber(value,low,  up,  mid,count, n);
+ 		}
+   		 
+   		 
+		else if (value.equals("yes"))
+        {
+			System.out.println("The number you thought was: "+mid);
+			int no=count+1;
+			System.out.println("It takes "+no+" times to find the number which you taught");
+			
+			break;
+        }
+
+	}
+	while(low<=up);
+		if (count>n)
+		{
+			System.out.println("Number is not found");
+		}
+		else
+		{
+			System.exit(0);
+		}
+	}
+
+
+// binary swapping nibbles
+
+   
+
+public void binNibbles() {
+
+	
+	    	System.out.println("enter the number");
+	    	int n =AlgorithmUtility.intValue();
+	    	System.out.println(Integer.toBinaryString(n));
+	    	
+	    	System.out.println("before Swapping the nibbles:"+Integer.toBinaryString(n));
+	    	n=swapNibbles1(n);
+	    	System.out.println("After Swapping the nibbles:"+Integer.toBinaryString(n));
+	    	int flag =0;
+	    	for(int i=0;i<n;i++)
+	    	{
+	    		
+	    	if(Math.pow(2, i)==n)
+	    	{
+	    		 flag =1;
+	    	}
+	    	
+	    
+	    	}
+	    	if(flag==1)
+	    		
+	    	{
+	    		System.out.println(n+" is power of 2");
+	    	}
+	    	else
+	    	{
+	    		System.out.println(n+" is not power of 2");
+	    	}
+	    	
 }
+public static int swapNibbles1(int n) 
+{ 
+    return ((n & 0x0F) << 4 | (n & 0xF0) >> 4); 
 }
+
+
 	
 	
-	
+} 
+
+
+
+
+
+
+
 
 
 

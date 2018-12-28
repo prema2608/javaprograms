@@ -60,7 +60,7 @@ public class Utility
 		System.out.println("stop time is : "+stopTimer);
           
 			  long elapsed=FunctionalUtility.elapsedTime(stopTimer,startTimer);
-			  map.put("binInteger", elapsed);
+			  map.put("binInteger", elapsed/1000);
 			  System.out.println("Elapsed time is: "+elapsed/1000+" sec");
 		   break;
 		   
@@ -77,7 +77,7 @@ public class Utility
 				System.out.println("stop time is : "+stopTimer1);
 		          
 					  long elapsed1=FunctionalUtility.elapsedTime(stopTimer1,startTimer1);
-					  map.put("binString", elapsed1);
+					  map.put("binString", elapsed1/1000);
 					  System.out.println("Elapsed time is: "+elapsed1/1000+" sec");
 			 break;
 			 
@@ -97,7 +97,7 @@ public class Utility
 		System.out.println("stop time is : "+stopTimer2);
           
 			  long elapsed2=FunctionalUtility.elapsedTime(stopTimer2,startTimer2);
-			  map.put("IsertInteger", elapsed2);
+			  map.put("IsertInteger", elapsed2/1000);
 			  System.out.println("Elapsed time is: "+elapsed2/1000+" sec");
 		break;
 	   case 4:
@@ -113,7 +113,7 @@ public class Utility
 		System.out.println("stop time is : "+stopTimer3);
           
 			  long elapsed3=FunctionalUtility.elapsedTime(stopTimer3,startTimer3);
-			  map.put("InsertString", elapsed3);
+			  map.put("InsertString", elapsed3/1000);
 			  System.out.println("Elapsed time is: "+elapsed3/1000+" sec");
 		   break;
 		
@@ -131,7 +131,7 @@ public class Utility
 			System.out.println("stop time is : "+stopTimer4);
 	          
 				  long elapsed4=FunctionalUtility.elapsedTime(stopTimer4,startTimer4);
-				  map.put("bubbInteger", elapsed4);
+				  map.put("bubbInteger", elapsed4/1000);
 				  System.out.println("Elapsed time is: "+elapsed4/1000+" sec");
 		   break;
 		   
@@ -148,7 +148,7 @@ public class Utility
 				System.out.println("stop time is : "+stopTimer5);
 		          
 					  long elapsed5=FunctionalUtility.elapsedTime(stopTimer5,startTimer5);
-					  map.put("bubbString", elapsed5);
+					  map.put("bubbString", elapsed5/1000);
 					  System.out.println("Elapsed time is: "+elapsed5/1000+" sec");
 			break;
 			 
@@ -163,12 +163,11 @@ public class Utility
         map.entrySet().stream().sorted(Map.Entry.comparingByValue(Comparator.reverseOrder()))
                 .forEachOrdered(x -> reverseSortedMap.put(x.getKey(), x.getValue()));
          
-        System.out.println("Reverse Sorted Map   : " + reverseSortedMap);
+        System.out.println("Elapsed time in decreasing order : " + reverseSortedMap+"sec");
 		
-		
-		
-		
-	 }
+	}
+	
+	
 }
 	 
 

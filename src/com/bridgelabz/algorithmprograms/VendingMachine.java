@@ -12,7 +12,7 @@ public class VendingMachine
         System.out.println("enter the money");
         int money=AlgorithmUtility.intValue();
         
-        int notes[]= {1000,500,100,50,10,5,2,1};
+        int notes[]= {2000,500,100,50,10,5,2,1};
          u.vendingMachine(money, notes);//method call
         
 		
