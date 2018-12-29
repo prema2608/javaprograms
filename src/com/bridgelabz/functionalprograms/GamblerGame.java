@@ -1,16 +1,18 @@
-package com.bridgelabz.functionalprograms;
-
-import java.util.Scanner;
-
-import com.bridgelabz.util.FunctionalUtility;
 /*
 *Created by: prema.s
 *Date: 20/12/2018.
 *Purpose:Print Number of Wins and Percentage of Win and Loss.
  */
+package com.bridgelabz.functionalprograms;
+
+import java.util.Scanner;
+
+import com.bridgelabz.util.FunctionalUtility;
+
 
 public class GamblerGame
 {
+	//main method
 	public static void main(String[] args) 
 	{
 		

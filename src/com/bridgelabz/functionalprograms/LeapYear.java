@@ -1,13 +1,15 @@
-package com.bridgelabz.functionalprograms;
-import com.bridgelabz.util.FunctionalUtility;
-import java.util.Scanner;
-
 /*
 *Created by: prema.s
 *Date: 19/12/2018.
 *Purpose: to check wether the given year is leap year or not*/
+package com.bridgelabz.functionalprograms;
+import com.bridgelabz.util.FunctionalUtility;
+import java.util.Scanner;
+
+
 public class LeapYear
 {
+	//main method
 	public static void main(String[] args) 
 	{
 		Scanner s=new Scanner(System.in);

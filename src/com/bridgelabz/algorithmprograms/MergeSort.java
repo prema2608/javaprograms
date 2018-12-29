@@ -1,11 +1,14 @@
+/*
+*Created by: prema.s
+*Date: 22/12/2018.
+*Purpose: sort string elements using merge sort*/
 package com.bridgelabz.algorithmprograms;
-
-import java.util.Scanner;
 
 import com.bridgelabz.util.AlgorithmUtility;
 
 public class MergeSort
 {
+	//main method
 	public static void main(String[] args)
     {
 		

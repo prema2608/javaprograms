@@ -1,15 +1,18 @@
-package com.bridgelabz.algorithmprograms;
-
-import java.util.Scanner;
-
-import com.bridgelabz.util.AlgorithmUtility;
-
 /*
 *Created by: prema.s
 *Date: 21/12/2018.
 *Purpose: sort int elements  using bubble sort*/
+
+package com.bridgelabz.algorithmprograms;
+
+
+
+import com.bridgelabz.util.AlgorithmUtility;
+
+
 public class BubbleSort 
 {
+	//main method
 public static void main(String[] args)
 {
 	AlgorithmUtility u= new AlgorithmUtility();

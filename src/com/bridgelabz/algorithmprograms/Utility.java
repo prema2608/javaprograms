@@ -1,3 +1,7 @@
+/*
+*Created by: prema.s
+*Date: 22/12/2018.
+*Purpose: To perform sorting and searching operation and print there elapsed time in decreasing order*/
 package com.bridgelabz.algorithmprograms;
 
 import com.bridgelabz.util.AlgorithmUtility;
@@ -12,13 +16,12 @@ import java.util.Scanner;
 
 public class Utility 
 {
+	//main method
 	public static void main(String[] args)
 	{
-  Map<String,Long> map=new HashMap<>();  
+       Map<String,Long> map=new HashMap<>();  
 		   
-		    
-		
-		  for(Map.Entry m:map.entrySet())
+          for(Map.Entry m:map.entrySet())
 		  {  
 		   System.out.println(m.getKey()+" "+m.getValue());  
 		  }  

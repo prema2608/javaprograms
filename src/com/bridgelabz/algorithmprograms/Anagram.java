@@ -1,14 +1,15 @@
-package com.bridgelabz.algorithmprograms;
-
-
-
-import com.bridgelabz.util.AlgorithmUtility;
 /*
 *Created by: prema.s
 *Date: 22/12/2018.
 *Purpose: to check  the given Two Strings are Anagram or not...*/
+
+package com.bridgelabz.algorithmprograms;
+
+import com.bridgelabz.util.AlgorithmUtility;
+
 public class Anagram
 {
+	//main method
 	public static void main(String[] args)
 	{
 		AlgorithmUtility u = new AlgorithmUtility();
