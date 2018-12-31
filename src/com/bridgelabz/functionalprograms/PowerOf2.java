@@ -8,6 +8,8 @@ package com.bridgelabz.functionalprograms;
 
 import java.util.Scanner;
 
+import com.bridgelabz.util.FunctionalUtility;
+
 public class PowerOf2
 {
    //main method
@@ -15,9 +17,8 @@ public class PowerOf2
 		Scanner sc=new Scanner(System.in);
 		System.out.println("enter the power value");
 		double n=sc.nextInt();
-		double p= Math.pow(2.0,n);
-		System.out.println("calculated value ="+p);
-
+		 FunctionalUtility u = new FunctionalUtility();
+		 u.powerOf2(n);
 	}
 
 

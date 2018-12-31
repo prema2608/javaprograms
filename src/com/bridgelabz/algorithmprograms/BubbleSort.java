@@ -16,9 +16,7 @@ public class BubbleSort
 public static void main(String[] args)
 {
 	AlgorithmUtility u= new AlgorithmUtility();
-
-	
-	boolean bubb;
+    boolean bubb;
 
 	System.out.println("Enter how many numbers to be sorted:");
 	int n=AlgorithmUtility.intValue();

@@ -16,7 +16,7 @@ public class FunctionalUtility {
 		String s1 = s.nextLine();
 
 		if (s1.length() >= 3) {
-			String s2 = str1.replace("##username##", s1);
+			String s2 = str1.replace("<<username>>", s1);
 			System.out.println(s2);
 		} else {
 			System.out.println("Invalid name");
@@ -26,10 +26,11 @@ public class FunctionalUtility {
 	// flipcoin
 
 	// method to find the perc of heads and tails
-	public void flipCoin(int n) {
+	public void flipCoin(int n)
+	{
 
-		int head = 0, tail = 0;
-		int c = n;
+		double head = 0, tail = 0;
+		double c = n;
 		Random r = new Random();
 		while (n != 0) {
 			double rn = r.nextDouble();
@@ -40,8 +41,10 @@ public class FunctionalUtility {
 			}
 			n--;
 		}
-		System.out.println("perc of Head=" + head * 100 / c);
-		System.out.println("perc of Tail=" + tail * 100 / c);
+		double h = head * 100 / c;
+		double t= tail * 100 / c;
+		System.out.println("perc of Head=" +h);
+		System.out.println("perc of Tail=" + t);
 
 	}
 
@@ -68,14 +71,22 @@ public class FunctionalUtility {
 
 	// power of 2
 	// method to find power of two
-	public void powerOf2(int n) {
+	public void powerOf2(double n) 
+	{
+		double t=0.0;
 		int count = 0;
-		if (n >= 0 && n < 31) {
-			for (int i = 0; i <= n; i++) {
-				double t = Math.pow(2, count);
-				count++;
-				System.out.println("the computed series is:");
-			}
+		System.out.println("The series is: ");
+		System.out.println();
+		if (n >= 0 && n < 31) 
+		{
+			for (int i = 0; i <= n; i++)
+			{
+				t = Math.pow(2, count);
+				
+				System.out.println(t);
+				count++;			
+				}
+			System.out.println("The sum is "+t);
 		}
 
 	}
@@ -169,9 +180,11 @@ public class FunctionalUtility {
 
 	// 2D Array
 //method to print the 2D array for int .
-	public static Integer[][] arrayInt(int m, int n) {
+	
+	public static Integer[][] arrayInt(int m, int n) 
+	{
 		Integer a[][] = new Integer[m][n];
-		FunctionalUtility u = new FunctionalUtility();
+
 		Scanner sc = new Scanner(System.in);
 		System.out.println();
 		System.out.println("Integer Array");
@@ -187,7 +200,7 @@ public class FunctionalUtility {
 //method to print the 2D array for double .
 	public static Double[][] arrayDouble(int m, int n) {
 		Double b[][] = new Double[m][n];
-		FunctionalUtility u = new FunctionalUtility();
+	
 		Scanner sc = new Scanner(System.in);
 		System.out.println();
 		System.out.println("Double Array");
@@ -216,42 +229,42 @@ public class FunctionalUtility {
 		return c;
 	}
 
-	public static void display(int[][] a, double[][] b, String[][] c, int m, int n) {
-		PrintWriter pw = new PrintWriter(System.out, true);
-
-// integers
-		System.out.println();
-		pw.println("2D ARRAY INTEGER");
-
-		for (int i = 0; i < m; i++) {
-			for (int j = 0; j < n; j++) {
-				pw.print("\t" + a[i][j] + " ");
-			}
-			pw.println("\t");
-		}
-
-//double
-		System.out.println();
-		pw.println("2D ARRAY DOUBLE");
-
-		for (int i = 0; i < m; i++) {
-			for (int j = 0; j < n; j++) {
-				pw.print("\t" + b[i][j] + " ");
-			}
-			pw.println("\t");
-		}
-
-// boolean
-		System.out.println();
-		pw.println("2D ARRAY BOOLEAN");
-
-		for (int i = 0; i < m; i++) {
-			for (int j = 0; j < n; j++) {
-				pw.print("\t" + c[i][j] + " ");
-			}
-			pw.println("\t");
-		}
-	}
+//	public static void display(int[][] a, double[][] b, String[][] c, int m, int n) {
+//		PrintWriter pw = new PrintWriter(System.out, true);
+//
+//// integers
+//		System.out.println();
+//		pw.println("2D ARRAY INTEGER");
+//
+//		for (int i = 0; i < m; i++) {
+//			for (int j = 0; j < n; j++) {
+//				pw.print("\t" + a[i][j] + " ");
+//			}
+//			pw.println("\t");
+//		}
+//
+////double
+//		System.out.println();
+//		pw.println("2D ARRAY DOUBLE");
+//
+//		for (int i = 0; i < m; i++) {
+//			for (int j = 0; j < n; j++) {
+//				pw.print("\t" + b[i][j] + " ");
+//			}
+//			pw.println("\t");
+//		}
+//
+//// boolean
+//		System.out.println();
+//		pw.println("2D ARRAY BOOLEAN");
+//
+//		for (int i = 0; i < m; i++) {
+//			for (int j = 0; j < n; j++) {
+//				pw.print("\t" + c[i][j] + " ");
+//			}
+//			pw.println("\t");
+//		}
+//	}
 
 	public static <E> void diply(E[][] genericArray, int row, int column) {
 		PrintWriter pw = new PrintWriter(System.out, true);
@@ -271,8 +284,8 @@ public class FunctionalUtility {
 		// initializing the variables
 		int i, j, k, count = 0;
 
-		for (i = 0; i < length; i++) {
-			for (j = i + 1; j < length; j++) {
+		for (i = 0; i < length-2; i++) {
+			for (j = i + 1; j < length-1; j++) {
 				for (k = j + 1; k < length; k++) {
 
 					if (b[i] + b[j] + b[k] == 0) {
@@ -399,7 +412,7 @@ public class FunctionalUtility {
 	public void windChill() {
 		Scanner sc = new Scanner(System.in);
 
-		System.out.print("Enter the temp in Fahrenheit " + "between -58ºF and 41ºF: ");
+		System.out.print("Enter the temp in Fahrenheit");
 		double temp = sc.nextDouble();
 		System.out.print("Enter the wind speed(v)>=2: ");
 
@@ -408,7 +421,7 @@ public class FunctionalUtility {
 		// formula
 		double wc = 35.74 + 0.6215 * temp - 35.75 * Math.pow(v, 0.16) + 0.4275 * temp * Math.pow(v, 0.16);
 
-		System.out.println("The wind chill index is " + wc);
+		System.out.println("The wind chill index is  " + wc);
 	}
 
 //permutation of string using recursive func

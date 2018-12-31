@@ -15,7 +15,7 @@ public class ReplaceString
 	{
 		Scanner s=new Scanner(System.in);
 	System.out.println("enter the usernme:");
-	String str1="hello ##username##,how r you?";
+	String str1="hello <<username>>,how r you?";
 		FunctionalUtility u = new FunctionalUtility();
 		//method calling
 	     u.replaceString(str1);

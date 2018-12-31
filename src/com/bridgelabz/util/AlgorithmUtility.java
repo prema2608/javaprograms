@@ -175,7 +175,8 @@ public class AlgorithmUtility {
 
 		System.out.println("The sorted order is:");
 
-		for (int i = 0; i < a.length; i++) {
+		for (int i = 0; i < a.length; i++) 
+		{
 			System.out.println(a[i]);
 		}
 		return bubb;
@@ -184,17 +185,20 @@ public class AlgorithmUtility {
 	// Insertion sort
 
 	// method to sort array of strings using insertion sort
-	public boolean insertionSort(String[] ary) {
-		boolean insert;
+	public  boolean insertionSort(String[] ary)
+	{
+			boolean insert = false;
 
 		System.out.println("Sorted order is: ");
-		for (int i = 0; i < ary.length; i++) {
+		for (int i = 0; i < ary.length; i++) 
+		{
 			Arrays.sort(ary);
 			System.out.println(ary[i]);
 		}
 		// return statmnt
-		return false;
-
+		return insert;
+		
+		
 	}
 
 	// monthly payment
@@ -215,24 +219,53 @@ public class AlgorithmUtility {
 	// temperature conversion
 
 	// method to find temp conversion
-	public float tempConversn(float fahrn, float cel, int choice) 
+	
+	public boolean tempConversn() 
 	{ //
+		int choice,i=0;
+		boolean result = false;
+		System.out.println("Enter the temperature");
+		float n =AlgorithmUtility.floatValue();
+		 do
+		   {
+		System.out.println("press 1 for temperature in fahrenheit & "
+				+ " press 2 for temp in celisus"
+				+" press 3 to Exit");
+		System.out.println("Enter your option");
+		choice=AlgorithmUtility.intValue();
 		
-		float result = 0.0f;
-		if (choice == 1)
+		
+  
+	   switch(choice)
+	   {
+	   case 1:
 		{
-			result = (fahrn - 32) * 5 / 9;
-			return result;
-		} 
-		else 
-		{
-			result = (cel * 9 / 5) + 32;
-			// returning statment
-			return result;
-		}
+			//Celsius to Fahrenheit:   (°C × 9/5) + 32 = °F
+			n = (n * 9 / 5) + 32;
+			System.out.println("temp in fahrenheit:"+n);
+		} break;
+		
+	   case 2:
+		{ 
+			
+			//Fahrenheit to Celsius:   (°F − 32) x 5/9 = °C
+	           n= (n - 32) * 5 / 9;
+				System.out.println("temp in celsius:"+n);
+		}break;
+		
+	   case 3:
+		   System.exit(0);
+		   break;
+		default:System.out.println("enter the correct choice");
+	   }i++;
+   }while(i<30);
+return result;
 
-	}
+   }
 
+	
+	
+	
 	// Day of Week
 	// method to find day of week
 	public int dayOfWeek(int m, int d, int y) {
@@ -306,7 +339,7 @@ public class AlgorithmUtility {
 
 			}
 			// printing the output
-			System.out.println("Total numbet of notes are" + total);
+			System.out.println("Total numbet of notes are:" + total);
 
 		}
 	}
@@ -382,7 +415,8 @@ public class AlgorithmUtility {
 		int last = array.length;
 		int middle = (first + last) / 2;
 		insertionSort(array);
-		while (first <= last) {
+		while (first <= last) 
+		{
 			if (array[middle].compareTo(search) < 0)
 				first = middle + 1;
 			else if (array[middle].compareTo(search) == 0) {
@@ -478,11 +512,6 @@ public class AlgorithmUtility {
 		System.out.println("enter the number");
 		int n = AlgorithmUtility.intValue();
 
-//		System.out.println(Integer.toBinaryString(n));
-//		String str=Integer.toBinaryString(n);
-//		char[] c1=str.toCharArray();
-//		int x=Integer.valueOf(str);
-//		System.out.println(x);
 		deciToBin(n);
 		System.out.println();
 //		System.out.println("before Swapping the nibbles:" + Integer.toBinaryString(n));
