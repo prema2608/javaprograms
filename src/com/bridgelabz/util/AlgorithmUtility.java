@@ -435,7 +435,7 @@ return result;
 //bubble sort for string
 
 //method for sorting the string array using bubble sort
-	public boolean bubbleSort(String a[]) {
+	public static boolean bubbleSort(String a[]) {
 		boolean bubb1 = false;
 		String temp = null;
 		for (int i = 0; i < a.length; i++) {
@@ -540,4 +540,55 @@ return result;
 		return ((n & 0x0F) << 4 | (n & 0xF0) >> 4);
 	}
 
+	
+	
+	// binary search
+
+		/**
+		 * static function that sorts the given array using bubble sort algorithm
+		 * 
+		 * @param array the array of strings to be sorted
+		 * @return sorted array
+		 */
+		public static String[] sort(String[] str) {
+			int len = str.length;
+			for (int i = 0; i < len; i++) {
+				for (int j = i + 1; j < len; j++) {
+					if (str[i].compareTo(str[j]) > 0) {
+						String temp;
+						temp = str[i];
+						str[i] = str[j];
+						str[j] = temp;
+					}
+				}
+			}
+			return str;
+		}
+
+		/**
+		 * static function that search for the given key in a array using binary search
+		 * algorithm
+		 * 
+		 * @param array the array of strings from which key is to be found
+		 * @param key   the key to be searched in the array
+		 * @return index the index of the key, found in the array
+		 */
+		public static int binarySearch(String[] str, String key) {
+			// int n=str.length;
+			int first = 0;
+			int last = str.length - 1;
+			int middle = (first + last) / 2;
+
+			while (first <= last) {
+				if (str[middle].compareTo(key) < 0)
+					first = middle + 1;
+				else if (str[middle].compareTo(key) == 0) {
+					return middle;
+				} else
+					last = middle - 1;
+
+				middle = (first + last) / 2;
+			}
+			return -1;
+		}
 }
