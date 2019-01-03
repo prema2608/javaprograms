@@ -1,12 +1,15 @@
 package com.bridgelabz.datastructureprograms;
-import com.bridgelabz.util.DataStructureUtility;
-import java.io.*;                 
 
-	public class UnOrderedList
-	{
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import com.bridgelabz.util.DataStructureUtility;
+
+public class OrderedList 
+{
 	public static void main(String args[])throws IOException
 	{
-	FileReader file = new FileReader("/home/admin1/Desktop/dogs.txt");
+	FileReader file = new FileReader("/home/admin1/Desktop/number.txt");
 	BufferedReader read=new BufferedReader(file);
 	final String DELIMITER=" ";
 	Linkedlist list = new Linkedlist();
@@ -22,8 +25,20 @@ import java.io.*;
 			Linkedlist.insert(list,token);
 		}
 		  Linkedlist.printList(list);
+
+		int[] arr = Linkedlist.toIntConv(list);
+		  
 		
-		System.out.println("Enter the word to be searched");
+		Linkedlist.stringSort(arr);
+		//Linkedlist.printList(list);
+
+////		String[] array=  Linkedlist.insertionSort1( list);  
+//		Object array;
+//		for(String s:array)
+//		{
+//			System.out.println(s);
+//		}
+		System.out.println("Enter the number");
 		String str =DataStructureUtility.stringValue();
 		int flag=0;
 		for(int i=0;i<list.size(list);i++)
@@ -33,7 +48,7 @@ import java.io.*;
 		     {
 			
 	    		Linkedlist.delete(list,str);
-		       System.out.println("word is found and  deleted from list");
+		       System.out.println("number is found and  deleted from list");
                flag=1;
 		       Linkedlist.printList(list);
 		       break;
@@ -43,7 +58,7 @@ import java.io.*;
 		if(flag==0)
 			{
 			Linkedlist.insert(list,str);
-			System.out.println("word not found so added to list");
+			System.out.println("number is not found so added to list");
 			Linkedlist.printList(list);
 		}
 
@@ -56,11 +71,8 @@ import java.io.*;
 	 }
 	
 	}
+	
+	
+	
 	}
-	
-	
-           
-	
-	
- 
-	
+
