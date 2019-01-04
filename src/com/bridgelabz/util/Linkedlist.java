@@ -1,4 +1,4 @@
-package com.bridgelabz.datastructureprograms;
+package com.bridgelabz.util;
 
 import java.util.Arrays;
 import java.util.Scanner;
@@ -177,7 +177,8 @@ public static int[] stringSort(int[] myArray) {
             }
         }
     }
-    return myArray;
+	return myArray;
+    
 
 }
 

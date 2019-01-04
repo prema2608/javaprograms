@@ -1,6 +1,5 @@
 package com.bridgelabz.datastructureprograms;
 
-public class Deque 
+public class BankCounter 
 {
-	
-	
+}

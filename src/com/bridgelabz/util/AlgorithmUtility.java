@@ -131,7 +131,7 @@ public class AlgorithmUtility {
 
 		String primeNumbers = "";
 
-		for (i = 2; i <= 1000; i++) {
+		for (i = 0; i <= 1000; i++) {
 			int counter = 0;
 			for (num = i; num >= 1; num--) {
 				if (i % num == 0) {

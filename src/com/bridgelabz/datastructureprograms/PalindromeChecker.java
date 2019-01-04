@@ -1,27 +1,27 @@
 package com.bridgelabz.datastructureprograms;
 
+import com.bridgelabz.util.DataStructureUtility;
+import com.bridgelabz.util.DequeUtility;
+
 public class PalindromeChecker 
 {
-	
-
 	public static void main(String[] args) 
 	{
-		Utility u=new Utility();
-		DequeUtility<Character> utility=new DequeUtility<Character>();
+		DequeUtility<Character> dq=new DequeUtility<Character>();
 		System.out.println("Enter a String: ");
-		String s=u.inputString();
+		String s=DataStructureUtility.stringValue();
 
-		//adding each character to the rear of the deque
+		//adding each character to the rear of the dequeue
 		for(int i=0;i<s.length();i++)
 		{
 			char c =s.charAt(i);
-			utility.addRear(c);
+			dq.addRear(c);
 		}
 		int flag=0;
 
-		while(utility.size()>1)
+		while(dq.size()>1)
 		{
-			if(utility.removeFront()!=utility.removeRear())
+			if(dq.removeFront()!=dq.removeRear())
 			{
 				flag=1;
 				break;
@@ -30,11 +30,11 @@ public class PalindromeChecker
 
 		if(flag==0)
 		{
-			System.out.println("String is palindrome");
+			System.out.println("Given String is palindrome");
 		}
 		else
 		{
-			System.out.println("String is not palindrome");
+			System.out.println("Given SString is not palindrome");
 		}
 	}
 }
