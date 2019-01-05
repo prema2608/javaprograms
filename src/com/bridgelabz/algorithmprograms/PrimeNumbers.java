@@ -14,7 +14,7 @@ public class PrimeNumbers
 {
 	public static void main(String[] args) 
 	{
-		List<Integer> primeList = new ArrayList<>();
+		List<String> primeList = new ArrayList<>();
 		//AlgorithmUtility u = new AlgorithmUtility();
 		//calling the method
 		primeList=AlgorithmUtility.primeNumbers();

@@ -1,13 +1,7 @@
 package com.bridgelabz.util;
 
-import java.util.Arrays;
-import java.util.Scanner;
-
 public class Linkedlist {
-    Node head; // head of list
-    // Linked list Node.
-    // This inner class is made static
-    // so that main() can access it
+    Node head; 
     static class Node {
 
         String data;
@@ -37,7 +31,10 @@ public class Linkedlist {
         }
         return list;
     }
-    public int size(Linkedlist list) {
+    
+    
+    public int size(Linkedlist list) 
+    {
     	int i=0;
     	Node last = list.head;
         while (last.next != null) {
@@ -76,19 +73,7 @@ public class Linkedlist {
 
         return flag;           
     }
-//    public static void FileWriter(Linkedlist list,String[] fileContent,String path) throws IOException
-//    {
-//        //String[] fileContent = DataStructureUtility.toStrinConv(list);
-//        FileWriter fileWriter = new FileWriter(path);   
-//        for(String s:fileContent)
-//        {
-//            if(s!=null) {
-//                fileWriter.write(s);
-//                fileWriter.write(" ");
-//            }
-//        }
-//        fileWriter.close();
-//    }
+
     
     public static int[] toIntConv(Linkedlist list)
     {
@@ -104,16 +89,13 @@ public class Linkedlist {
                 currNode = currNode.next;
             }
             }
-		;
+		
 		return str;
      
 
     }
 
     
-    
-    
-
     public static String[] toStrinConv(Linkedlist list)
     {
         Node currNode = list.head;
@@ -127,41 +109,19 @@ public class Linkedlist {
         }
         return str;
     }
-    static Scanner scanner=new Scanner(System.in);
-    public static int readInteger() {
-        return scanner.nextInt();
-    }   
-    public static double readdouble() {
-        return scanner.nextDouble();
-    }
-    public static String readString() {
-        return scanner.next();
-    
-    }
+//    static Scanner scanner=new Scanner(System.in);
+//    public static int readInteger() {
+//        return scanner.nextInt();
+//    }   
+//    public static double readdouble() {
+//        return scanner.nextDouble();
+//    }
+//    public static String readString() {
+//        return scanner.next();
+//    
+//    }
 
  
-
-//    public static  String[] insertionSort1(Linkedlist list)
-//	{
-//			boolean insert = false;
-//          
-//		System.out.println("Sorted order is: ");
-//		String[] arr=toStrinConv(list);
-////		for (int i = 0; i < list.size(list); i++) 
-////		{
-//			Arrays.sort(arr);
-//			
-////			System.out.println();
-////		}
-////		
-////		return arr;
-//			for(String s:arr)
-//			{
-//				System.out.println(s);
-//			}
-//			return arr;
-//			}
-
 
 public static int[] stringSort(int[] myArray) {
     //int size = myArray.length;
@@ -183,32 +143,10 @@ public static int[] stringSort(int[] myArray) {
 }
 
 
-//public static int[] sort(int[] arr )
-//{
-//	int size=arr.length;
-//	for(int i=size;i>0;i--)
-//	{
-//  		for(int j=1;j<size;j++)
-//		{
-//    		if(arr[j-1]>arr[j])
-//			{
-//      			int temp=arr[j-1];
-//      			arr[j-1]=arr[j];
-//      			arr[j]=temp;
-//    		}
-//  		}
-//  		size--;
-//	}
-//	return arr;
-	}//End of sorting method
+}
 
 
 
 
 
 
-
-
-
-//    public static void dispFile( String fname)
-//    {

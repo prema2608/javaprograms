@@ -9,7 +9,7 @@ public class BalancedParentheses
 {
 	public static void main(String[] args) 
 	{
-		DataStructureUtility  u=new DataStructureUtility ();
+	
 		System.out.println("Enter max size: ");
 		int n=DataStructureUtility.intValue();
 	
@@ -24,10 +24,10 @@ public class BalancedParentheses
 		/* Accepting expression */
 		System.out.println("Enter expression: ");
 		String exp = DataStructureUtility.stringValue();        
-		int len = exp.length();
+		
 		System.out.println("Matches and Mismatches: ");
 
-		for (int i = 0; i < len; i++)
+		for (int i = 0; i < exp.length(); i++)
 		{    
 		char ch = exp.charAt(i);
 

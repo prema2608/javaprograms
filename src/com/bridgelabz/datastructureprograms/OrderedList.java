@@ -30,16 +30,13 @@ public class OrderedList
 		int[] arr = Linkedlist.toIntConv(list);
 		  
 		
-		Linkedlist.stringSort(arr);
-		//Linkedlist.printList(list);
-
-////		String[] array=  Linkedlist.insertionSort1( list);  
-//		Object array;
-//		for(String s:array)
-//		{
-//			System.out.println(s);
-//		}
-		System.out.println("Enter the number");
+		int[] arr1=Linkedlist.stringSort(arr);
+		 System.out.println( "sorted array is");
+		for(int i=0;i<arr1.length;i++)
+			if(arr1[i]!=0)
+    
+		System.out.println(arr1[i]);
+	System.out.println("Enter the number");
 		String str =DataStructureUtility.stringValue();
 		int flag=0;
 		for(int i=0;i<list.size(list);i++)

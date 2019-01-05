@@ -24,11 +24,7 @@ package com.bridgelabz.util;
 		{
 		return stackArray[top--];
 		}
-		//for peek   
-		public long peek() 
-		{
-		return stackArray[top];
-		}
+
 		//to check whether stack is empty	   
 		public boolean isEmpty()
 		{

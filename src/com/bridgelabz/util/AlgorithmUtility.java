@@ -2,12 +2,14 @@ package com.bridgelabz.util;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Scanner;
+import java.util.Set;
 
 import com.bridgelabz.algorithmprograms.VendingMachine;
 
-public class AlgorithmUtility {
+public class AlgorithmUtility<T> {
 	// creating our own scanner class
 	static Scanner sc = new Scanner(System.in);
 
@@ -84,13 +86,13 @@ public class AlgorithmUtility {
 	 * @return
 	 */
 	// method to find anagrams of string
-	public boolean anagramOfString(String s1, String s2) {
+	public static boolean anagramOfString(String s1, String s2) {
 
 		boolean status = false;
 
 		if (s1.length() != s2.length()) {
 
-			System.out.println("Enter both the strings of same size");
+			//System.out.println("Enter both the strings of same size");
 		} else {
 			char[] stng1 = s1.toLowerCase().toCharArray();
 			char[] stng2 = s2.toLowerCase().toCharArray();
@@ -124,8 +126,8 @@ public class AlgorithmUtility {
 
 	// prime Numbers
 
-	public static List<Integer> primeNumbers() {
-		List<Integer> primeList = new ArrayList<>();
+	public static List<String> primeNumbers() {
+		List<String> primeList = new ArrayList<>();
 		int i = 0;
 		int num = 0;
 
@@ -139,7 +141,7 @@ public class AlgorithmUtility {
 				}
 			}
 			if (counter == 2) {
-				primeList.add(i);
+				primeList.add(Integer.toString(i));
 				// primeNumbers = primeNumbers + i + " ";
 			}
 		}
@@ -150,11 +152,34 @@ public class AlgorithmUtility {
 
 	}
 
-	// anagram palindrome
+	// anagram 
 
-	public static void anagramPalin(List<Integer> primeList) {
+	    public static Set<String> primeAnagram(List<String> primeList)
+	    {   
+	        Set<String> primeAnagramSet=new HashSet<String>();
+	        for(int i=0;i<primeList.size();i++)
+	        {
 
-	}
+	            for(int j=i+1;j<primeList.size();j++)
+	            {
+	                if(AlgorithmUtility.anagramOfString(String.valueOf(primeList.get(i)), String.valueOf(primeList.get(j))))
+	                {
+	                   
+	                    primeAnagramSet.add(primeList.get(i));
+	                    primeAnagramSet.add(primeList.get(j));
+	                    //System.out.println(primeList.get(i)+"    "+primeList.get(j) );
+	                }
+	            }
+	        }
+
+	        return primeAnagramSet;
+	    }
+
+
+		
+		
+
+	
 
 	// Bubble sort
 
@@ -185,7 +210,7 @@ public class AlgorithmUtility {
 	// Insertion sort
 
 	// method to sort array of strings using insertion sort
-	public  boolean insertionSort(String[] ary)
+	public  <T extends Comparable<T>>boolean insertionSort(T[] ary)
 	{
 			boolean insert = false;
 
@@ -407,14 +432,14 @@ return result;
 //binaryOfString
 
 //method to binary search for array of string
-	public void binaryOfString(String[] array, String search) {
+	public <T extends Comparable<T>> void binaryOfString(T[] array, T search) {
 
 		// boolean binInt = false;
 
 		int first = 0;
 		int last = array.length;
 		int middle = (first + last) / 2;
-		insertionSort(array);
+		//insertionSort(array);
 		while (first <= last) 
 		{
 			if (array[middle].compareTo(search) < 0)
@@ -435,9 +460,9 @@ return result;
 //bubble sort for string
 
 //method for sorting the string array using bubble sort
-	public static boolean bubbleSort(String a[]) {
+	public static <T extends Comparable<T>>boolean bubbleSort(T[] a) {
 		boolean bubb1 = false;
-		String temp = null;
+		T temp = null;
 		for (int i = 0; i < a.length; i++) {
 			for (int j = i + 1; j < a.length; j++) {
 				if (a[i].compareTo(a[j]) > 0) {

@@ -2,7 +2,6 @@ package com.bridgelabz.util;
 
 import java.util.NoSuchElementException;
 
-/*  Class Node  */
 class Node
 {
 	protected int data;
@@ -136,4 +135,9 @@ public class CashCounterLogic
         }
         System.out.println();        
     }
+    public void display(int amt)
+    {  
+    	System.out.println("remaining amount is "+amt);
+    }
+		
 }
