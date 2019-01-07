@@ -1,3 +1,10 @@
+/*
+*Created by: prema.s
+*Date: 22/12/2018.
+*Purpose: Write a program Calendar.java that takes the month and year as command-line arguments 
+*and prints the Calendar of the month. Store the Calendar in an 2D Array, the first dimension
+* the week of the month and the second dimension stores the day of the week..*/
+
 package com.bridgelabz.datastructureprograms;
 
 import com.bridgelabz.util.DataStructureUtility;
@@ -12,17 +19,15 @@ public static void main(String[] args)
 
     
     String[] months = {
-        "",                               
+        " ",                               
         "January", "February", "March",
         "April", "May", "June",
         "July", "August", "September",
-        "October", "November", "December"
-    };
+        "October", "November", "December" };
 
     // days[i] = number of days in month i
     int[] days = {
-        0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31
-    };
+        0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
 
     // check for leap year
     if (month == 2 && DataStructureUtility.isLeapYear(year))
@@ -31,7 +36,7 @@ public static void main(String[] args)
 
     // print calendar header
     System.out.println("   " + months[month] + " " + year);
-    System.out.println("Sun\tMon\tTue\tWed\tThu\tFri\tSun");
+    System.out.println("Sun\tMon\tTue\tWed\tThu\tFri\tSat");
     System.out.println();
  
     // starting day
@@ -39,10 +44,12 @@ public static void main(String[] args)
 
     // printing the calendar
     for (int i = 0; i < d; i++)
-    	System.out.print(" ");
-    for (int i = 1; i <= days[month]; i++) {
-    	System.out.print( i+"\t");
-        if (((i + d) % 7 == 0) || (i == days[month])) System.out.println();
+    	System.out.print("\t");
+    for (int i = 1; i <= days[month]; i++) 
+    {
+    	System.out.print( i+ "\t");
+        if (((i + d) % 7 == 0) || (i == days[month])) 
+        	System.out.println();
     }
 
 }

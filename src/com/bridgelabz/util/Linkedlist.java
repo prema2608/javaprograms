@@ -63,7 +63,7 @@ public class Linkedlist {
             {
                 if((currNode.data).compareToIgnoreCase(key)==0) {
                     currNode.data=null;   
-//                    System.out.println("entered "+key+" found and deleted");
+//                System.out.println("entered "+key+" found and deleted");
                     flag=1;
                     break;
                 }

@@ -1,3 +1,11 @@
+/*
+*Created by: prema.s
+*Date: 22/12/2018.
+*Purpose:  Read .a List of Numbers from a file and arrange it ascending Order in a Linked List.
+* Take user input for a number, if found then pop the number out of the list else insert the 
+* number in appropriate position*/
+
+
 package com.bridgelabz.datastructureprograms;
 
 import java.io.BufferedReader;
@@ -36,7 +44,7 @@ public class OrderedList
 			if(arr1[i]!=0)
     
 		System.out.println(arr1[i]);
-	System.out.println("Enter the number");
+	System.out.println("Enter the value");
 		String str =DataStructureUtility.stringValue();
 		int flag=0;
 		for(int i=0;i<list.size(list);i++)
@@ -46,7 +54,7 @@ public class OrderedList
 		     {
 			
 	    		Linkedlist.delete(list,str);
-		       System.out.println("number is found and  deleted from list");
+		       System.out.println("value is found and  deleted from list");
                flag=1;
 		       Linkedlist.printList(list);
 		       break;
@@ -56,7 +64,7 @@ public class OrderedList
 		if(flag==0)
 			{
 			Linkedlist.insert(list,str);
-			System.out.println("number is not found so added to list");
+			System.out.println("value is not found so added to list");
 			Linkedlist.printList(list);
 		}
 

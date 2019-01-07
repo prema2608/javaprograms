@@ -1,3 +1,10 @@
+/*
+*Created by: prema.s
+*Date: 22/12/2018.
+*Purpose: Store the prime numbers in a 2D Array, 
+*the first dimension represents the range 0-100, 100-200, and so on.
+* While the second dimension represents the prime numbers in that range
+*/
 package com.bridgelabz.datastructureprograms;
 
 import java.util.ArrayList;

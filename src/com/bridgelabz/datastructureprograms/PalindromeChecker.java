@@ -1,3 +1,10 @@
+/*
+*Created by: prema.s
+*Date: 22/12/2018.
+*Purpose:To use a deque to store the characters of the string.
+* We will process the string from left to right and add each character to the rear of the deque. 
+.*/
+
 package com.bridgelabz.datastructureprograms;
 
 import com.bridgelabz.util.DataStructureUtility;
@@ -34,7 +41,7 @@ public class PalindromeChecker
 		}
 		else
 		{
-			System.out.println("Given SString is not palindrome");
+			System.out.println("Given String is not palindrome");
 		}
 	}
 }

@@ -1,14 +1,14 @@
 package com.bridgelabz.util;
 
 	
-	public class StackLogic 
+	public class Stack 
 	{
 		private int maxSize;
 		private long[] stackArray;
 		private int top;
 
 		//for size  
-		public StackLogic(int s)
+		public Stack(int s)
 		{
 		maxSize = s;
 		stackArray = new long[maxSize];

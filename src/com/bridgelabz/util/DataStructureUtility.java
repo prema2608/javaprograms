@@ -1,7 +1,6 @@
 package com.bridgelabz.util;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -297,7 +296,20 @@ public  class DataStructureUtility
 	
 	}
 	
-	
+	public static void writeFile(String fName,String[] str) throws IOException 
+	{
+//		fName="/home/admin1/Desktop/Newfile.txt";
+		FileWriter fileWriter=new FileWriter(fName);
+		 
+		
+		for(String s: str) {
+			if(s!=null) {
+			fileWriter.write(s);
+			fileWriter.write(" ");}
+		}
+
+		fileWriter.close();
+	}
 	
 	
 	

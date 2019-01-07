@@ -7,14 +7,14 @@ class Node
 	protected int data;
     protected Node link;
  
-    /*  Constructor  */
+    
     public Node()
     {
         link = null;
         data = 0;
     }  
     
-    /* Parameterized Constructor  */
+   
     public Node(int d,Node n)
     {
         data = d;
@@ -47,13 +47,13 @@ class Node
 }
  
 /*  Class linkedQueue  */
-public class CashCounterLogic
+public class Queue
 {
 	public Node front, rear;
     public int size;
  
     /* Constructor */
-    public CashCounterLogic()
+    public Queue()
     {
         front = null;
         rear = null;
@@ -73,7 +73,7 @@ public class CashCounterLogic
     }    
     
     /*  Function to insert an element to the queue */
-    public void insert(int data)
+    public void enqueue(int data)
     {
         Node node = new Node(data, null);
         if (rear == null)

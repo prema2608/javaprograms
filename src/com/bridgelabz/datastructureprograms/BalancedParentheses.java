@@ -1,7 +1,15 @@
+/*
+*Created by: prema.s
+*Date: 22/12/2018.
+*Purpose:  Write a Stack Class to push open parenthesis “(“ and pop closed parenthesis “)”.
+* At the End of the Expression if the Stack is Empty then 
+* the Arithmetic Expression is Balanced. .*/
+
+
 package com.bridgelabz.datastructureprograms;
 
 import com.bridgelabz.util.DataStructureUtility;
-import com.bridgelabz.util.StackLogic;
+import com.bridgelabz.util.Stack;
 
 
 public class BalancedParentheses
@@ -15,13 +23,13 @@ public class BalancedParentheses
 	
 
 		/* Creating Stack */
-		StackLogic stack = new StackLogic(n);
+		Stack stack = new Stack(n);
 		System.out.println();
 		System.out.println("Parenthesis Matching");
 		System.out.println();
 		 
 
-		/* Accepting expression */
+		
 		System.out.println("Enter expression: ");
 		String exp = DataStructureUtility.stringValue();        
 		

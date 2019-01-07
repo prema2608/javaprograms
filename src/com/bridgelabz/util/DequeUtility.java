@@ -28,6 +28,11 @@ public class DequeUtility<E>
 	Deque<E> rear;
 	int size=0;
 
+	//return size of deque
+		public int size()
+		{
+			return size;
+		}
 	//add front
 	public void addFront(E c)
 	{
@@ -111,11 +116,7 @@ public class DequeUtility<E>
 			return false;
 	}
 
-	//return size of deque
-	public int size()
-	{
-		return size;
-	}
+	
 }
 
 
