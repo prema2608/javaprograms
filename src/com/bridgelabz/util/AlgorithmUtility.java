@@ -411,7 +411,7 @@ return result;
 		int first = 0;
 		int last = n - 1;
 		int middle = (first + last) / 2;
-		bubbleSort(array);
+		//bubbleSort(array);
 		while (first <= last) {
 			if (array[middle] < search)
 				first = middle + 1;

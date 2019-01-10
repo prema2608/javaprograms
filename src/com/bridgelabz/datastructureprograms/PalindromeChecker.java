@@ -8,13 +8,13 @@
 package com.bridgelabz.datastructureprograms;
 
 import com.bridgelabz.util.DataStructureUtility;
-import com.bridgelabz.util.DequeUtility;
+import com.bridgelabz.util.Deque1;
 
 public class PalindromeChecker 
 {
 	public static void main(String[] args) 
 	{
-		DequeUtility<Character> dq=new DequeUtility<Character>();
+		Deque1<Character> dq=new Deque1<Character>();
 		System.out.println("Enter a String: ");
 		String s=DataStructureUtility.stringValue();
 

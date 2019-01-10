@@ -1,6 +1,6 @@
 package com.bridgelabz.util;
 
-public class DequeUtility<E>
+public class Deque1<E>
 {
 	public class Deque<E> 
 	{
@@ -21,7 +21,7 @@ public class DequeUtility<E>
 			this.pre=null;
 		}
 	}
-	public DequeUtility(){	
+	public void Deque(){	
 	}
 
 	Deque<E> front;
