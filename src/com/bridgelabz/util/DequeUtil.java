@@ -1,6 +1,6 @@
 package com.bridgelabz.util;
 
-public class Deque1<E>
+public class DequeUtil<E>
 {
 	public class Deque<E> 
 	{
