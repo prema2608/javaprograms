@@ -15,7 +15,7 @@ public class PrimeAnagrams
 	{
 		List<String> primeList = new ArrayList<>();
 		 Set<String> primeAnagramSet=new HashSet<String>();
-		//AlgorithmUtility u = new AlgorithmUtility();
+		
 		//calling the method
 		 
 		 primeList=AlgorithmUtility.primeNumbers();

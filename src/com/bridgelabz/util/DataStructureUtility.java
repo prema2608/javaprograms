@@ -103,6 +103,51 @@ public  class DataStructureUtility
 	}
 
 
+	///balanced parenthesis
+	
+	/**
+     * check for pair of brackets
+     * @param character1
+     * @param character2
+     * @return boolean type
+     */
+    public static boolean Pair(char character1, char character2) {
+        if (character1 == '(' && character2 == ')')
+            return true;
+        else
+            return false;
+    }   
+
+
+	
+	public boolean isBalanced(char exp[]) {
+
+        Stack<Character> st = new Stack<Character>();
+        for (int i = 0; i < exp.length; i++) {
+            if (exp[i] == '(')
+                st.push(exp[i]);
+
+            if (exp[i] == ')') {
+                if (st.isEmpty()) {
+                    return false;
+                }
+
+                else if (!Pair(st.pop(), exp[i])) {
+                    return false;
+                }
+            }
+
+        }
+
+        if (st.isEmpty())
+            return true;
+        else
+            return false;
+    }
+
+    
+	
+	
 	//primenumber 2D
 
 	public static List<Integer> primeNumbers(int x,int y) {
@@ -110,6 +155,7 @@ public  class DataStructureUtility
 		int i = 0;
 		int num = 0;
 
+		@SuppressWarnings("unused")
 		String primeNumbers = "";
 
 		for (i = x; i < y; i++) {
@@ -295,6 +341,31 @@ public  class DataStructureUtility
 
 	
 	}
+	  public static Stack<Integer> primeAnagram2(List<Integer> primeList) {
+//        Set<Integer> primeAnagram = new HashSet<>();
+        Stack<Integer> stack=new Stack<Integer>();
+        for (int i = 0; i < primeList.size(); i++) {
+            for (int j = i+1; j < primeList.size(); j++) {
+                if (AlgorithmUtility.anagramOfString(String.valueOf(primeList.get(i)), String.valueOf(primeList.get(j)))) {
+                    stack.push(primeList.get(i));
+                    stack.push(primeList.get(j));
+                }
+            }
+        }
+        return stack;
+    }
+	  public static Queue primeAnagram3(List<Integer> primeList) {
+	        Queue queue=new Queue();
+	        for (int i = 0; i < primeList.size(); i++) {
+	            for (int j = i+1; j < primeList.size(); j++) {
+	                if (AlgorithmUtility.anagramOfString(String.valueOf(primeList.get(i)), String.valueOf(primeList.get(j)))) {
+	                    queue.enqueue(primeList.get(i));
+	                    queue.enqueue(primeList.get(j));
+	                }
+	            }
+	        }
+	        return queue;
+	    }
 	
 	public static void writeFile(String fName,String[] str) throws IOException 
 	{
@@ -314,9 +385,7 @@ public  class DataStructureUtility
 	
 	
 	
-	
-	
-	
+
 	
 }
 

@@ -1,8 +1,18 @@
 package com.bridgelabz.util;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.List;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import com.bridgelabz.oopsprograms.Inventory;
+import com.bridgelabz.oopsprograms.InventoryList;
 
 public class OopsUtility 
 {
@@ -59,6 +69,19 @@ public class OopsUtility
 		return 0;
 
 	}
+	
+	public static long longValue() {
+		try {
+
+			return sc.nextLong();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+
+		}
+		return 0;
+		
+	}
 
 	// scanner class for string
 	public static String stringValue() {
@@ -112,8 +135,119 @@ public class OopsUtility
 	
 	
 	
+//json Inventories
+	
+	
+	public static String readFile(String str) throws FileNotFoundException {
+        FileReader f = new FileReader(str);
+       
+        BufferedReader read = new BufferedReader(f);
+        String line = "";
+        try {
+            String word="";
+            while ((word = read.readLine()) != null) {
+                line = word;
+            }
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+        return line; 
+    }
+////////////////////
+public static void display(List<InventoryList> list2)
+    {
+        for (int i = 0; i < list2.size(); i++) {
+            InventoryList it = list2.get(i);
+            System.out.println("Inventory name :" + it.getInventoryName());
+            for (int j = 0; j < it.getInventorylist().size(); j++) {
+                System.out.println("name :" + it.getInventorylist().get(j).getName());
+                System.out.println("price :" + it.getInventorylist().get(j).getPrice());
+                System.out.println("weight :" + it.getInventorylist().get(j).getWeight());
+                System.out.println();
+            }
+            System.out.println("---------------------------------------------");
+        }
+    }
+///////////////////
+    public static InventoryList insertInventoryList(String inventoryName,List<Inventory> listOfInventories)
+    {
+        InventoryList inventoryList = new InventoryList();
+        inventoryList.setInventoryName(inventoryName);
+        inventoryList.setInventorylist(listOfInventories);
+        return inventoryList;
+    }
 
 	
+///////////////////////////////////////
+   
+   public static void price(List<InventoryList> list2)
+    {
+
+        for (int i = 0; i < list2.size(); i++) {
+            InventoryList it = list2.get(i);
+            System.out.println("Inventory name :" + it.getInventoryName());
+            for (int j = 0; j < it.getInventorylist().size(); j++) {
+                System.out.println("name :" + it.getInventorylist().get(j).getName());
+                double sum=it.getInventorylist().get(j).getPrice()*it.getInventorylist().get(j).getWeight();
+                System.out.println("total price to be given is :"+sum);
+            }
+            System.out.println("---------------------------------------------");
+        }
+    }
+
+///////////////////
+
+public static void write(String json) throws IOException
+    {
+        FileWriter fw = new FileWriter("/home/admin1/Desktop/Inventory.json");
+        BufferedWriter bw = new BufferedWriter(fw);
+        bw.write(json);
+        bw.flush();
+    }
+
+public static Inventory getInventoryValues() {
+	Inventory inventory = new Inventory();
+    System.out.println("Enter name of inventory");
+    inventory.setName(OopsUtility.stringValue());
+    System.out.println("Enter weight of inventory in kilograms");
+    inventory.setWeight(OopsUtility.doubValue());
+    System.out.println("Enter price of inventory in rupees");
+    inventory.setPrice(OopsUtility.doubValue());
+    return inventory;
+	
+}
+
+//Deck of cards
+public class Card {
+
+
+    private String suit;
+    private String value;
+
+
+    public Card(String suit, String value){
+        this.suit = suit;
+        this.value = value;
+    }
+    public Card(){}
+    public String getSuit(){
+        return suit;
+    }
+    public void setSuit(String suit){
+        this.suit = suit;
+    }
+    public String getValue(){
+        return value;
+    }
+    public void setValue(String value){
+        this.value = value;
+    }
+
+    public String toString(){
+        return "\n"+value + " of "+ suit;
+    }
+}
 	
 	
 }

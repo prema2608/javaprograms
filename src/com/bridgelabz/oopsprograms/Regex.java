@@ -11,10 +11,10 @@ public class Regex
 	public static void main(String[] args) 
 
 	{
-		String csvFile = "/home/admin1/Desktop/regexfile.txt";
+		 
 		BufferedReader fileReader;
 		try {
-			fileReader = new BufferedReader(new FileReader(csvFile));
+			fileReader = new BufferedReader(new FileReader("/home/admin1/Desktop/regexfile.txt"));
 			
 			String line = "";
 			String sum;
