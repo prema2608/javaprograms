@@ -385,7 +385,48 @@ public  class DataStructureUtility
 	
 	
 	
+/// Hashing function
+//	
+//	//traverses the list and prints the Length of List including the node values
+//    public int print() {
+//
+//        Node tmp = first;Linkedlist
+//        int i = 0;
+//        while (true) {
+//            if (tmp == null)//end reached
+//            {
+//                break;
+//            }
+//            if(tmp.getValue()!=null)//traverses till null not found
+//            {
+//            System.out.println(tmp.getValue());//prints node value
+//            i++;
+//            }
+//            tmp = tmp.getNextRef();//node incremented so that next node is traversed till the loop ends
+//        }
+//        return i;
+//    }
 
+	//binary search tree
+    
+    public static double binomialCoeff(double n, double k) {
+        double res = 1.0;
+        for (int i = 0; i < k; ++i) {
+            res =res * (n - i);
+            res =res /(i + 1);
+        }
+        return res;
+    }
+
+
+    
+    public static double countBinary(int n) {
+        double c = binomialCoeff(2 * n, n);
+        double count = c / (n + 1);
+        return count;
+    }
+
+	
 	
 }
 

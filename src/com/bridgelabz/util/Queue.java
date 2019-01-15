@@ -2,27 +2,27 @@
 
 import java.util.NoSuchElementException;
 
-class Node
+class Node<T>
 {
-	protected int data;
+	protected T data;
     protected Node link;
  
     
     public Node()
     {
         link = null;
-        data = 0;
+       
     }  
     
    
-    public Node(int d,Node n)
+    public Node(T d,Node n)
     {
         data = d;
         link = n;
     }  
     
     /*  Function to set data to current Node  */
-   	public void setData(int d)
+   	public void setData(T d)
     {
         data = d;
     }   
@@ -40,9 +40,10 @@ class Node
     }  
 
     /*  Function to get data from current Node  */
-    public int getData()
+    public T getData()
     {
-        return data;
+		return data;
+       
     }
 }
  
@@ -90,7 +91,7 @@ public class Queue
     }   
     
     /*  Function to remove front element from the queue */
-   	public int remove()
+   	public <T> T remove()
     {
         if (isEmpty())
 		{
@@ -103,7 +104,7 @@ public class Queue
             rear =null;
 			size-- ; 
 		}       
-        return ptr.getData();
+        return (T) ptr.getData();
     }    
     
     /*  Function to check the front element of the queue */
@@ -113,28 +114,9 @@ public class Queue
 		{
             throw new NoSuchElementException("Underflow Exception");
 		}
-        return front.getData();
+        return (int) front.getData();
     }    
-    
-    /*  Function to display the status of the queue */
-    public void display()
-    {  
-		int ptr1=0;
-        System.out.print("Available Balance = ");
-        if (size == 0)
-        {
-            System.out.print("Empty");
-            return ;
-        }
-        Node ptr = front;
-        while (ptr != rear.getLink() )
-        { 
-        	ptr1=ptr1+ptr.getData();
-        	System.out.println(ptr1);
-            ptr = ptr.getLink();
-        }
-        System.out.println();        
-    }
+ 
     public void display(int amt)
     {  
     	System.out.println("remaining amount is "+amt);

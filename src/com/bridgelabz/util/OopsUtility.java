@@ -201,7 +201,8 @@ public static void display(List<InventoryList> list2)
 public static void write(String json) throws IOException
     {
         FileWriter fw = new FileWriter("/home/admin1/Desktop/Inventory.json");
-        BufferedWriter bw = new BufferedWriter(fw);
+        @SuppressWarnings("resource")
+		BufferedWriter bw = new BufferedWriter(fw);
         bw.write(json);
         bw.flush();
     }
