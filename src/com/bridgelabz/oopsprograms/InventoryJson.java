@@ -7,6 +7,8 @@ import java.util.List;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.codehaus.jackson.type.TypeReference;
 
+import com.bridgelabz.util.Inventory;
+import com.bridgelabz.util.InventoryList;
 import com.bridgelabz.util.OopsUtility;
 
 public class InventoryJson 

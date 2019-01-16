@@ -1,11 +1,18 @@
-package com.bridgelabz.oopsprograms;
+package com.bridgelabz.util;
 
 public class PersonDetails 
 {
 	private  String Fname;
 	private String lname;
 	private long phonumbr;
+	private AddressDetails addressDetails = new AddressDetails();
 
+	public AddressDetails getAddressDetails() {
+		return addressDetails;
+	}
+	public void setAddressDetails(AddressDetails addressDetails) {
+		this.addressDetails = addressDetails;
+	}
 	public String getFname() {
 		return Fname;
 	}

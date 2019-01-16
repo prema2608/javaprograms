@@ -1,4 +1,4 @@
-package com.bridgelabz.oopsprograms;
+package com.bridgelabz.util;
 
 public class Inventory 
 {

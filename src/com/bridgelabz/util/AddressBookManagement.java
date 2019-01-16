@@ -1,4 +1,4 @@
-package com.bridgelabz.oopsprograms;
+package com.bridgelabz.util;
 
 import java.io.File;
 import java.io.IOException;
@@ -8,7 +8,7 @@ import java.util.List;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.codehaus.jackson.type.TypeReference;
 
-import com.bridgelabz.util.OopsUtility;
+import com.bridgelabz.oopsprograms.MyAddressBookApp;
 
 public class AddressBookManagement
 
@@ -23,7 +23,7 @@ public class AddressBookManagement
 	AddressBook addressBook = null;
 	static List<AddressBook> liOfAddressBook = new ArrayList<AddressBook>();
 	static ObjectMapper objectMapper = new ObjectMapper();
-	static List<PersonDetails> liOfPerson = new ArrayList<PersonDetails>();
+//	static List<PersonDetails> personlist = new ArrayList<PersonDetails>();
 	File[] arrayOfFiles = new File(System.getProperty("user.dir")).listFiles();
 	static final String str= "/home/admin1/Documents/Prema/My Programs/javaprograms/";
 	static String bookName = null;
@@ -65,9 +65,9 @@ public class AddressBookManagement
 				if (file.length() > 0) {
 					System.out.println("Add Details");
 					String string = OopsUtility.readFile(filename);
-					liOfPerson = objectMapper.readValue(string, new TypeReference<List<Person>>() {
+					AddressBook.personlist = objectMapper.readValue(string, new TypeReference<List<PersonDetails>>() {
 					});
-					AddressBook.setLiOfPerson(liOfPerson);
+					AddressBook.setPersonlist(AddressBook.personlist);
 					insertAddressBook();
 				} else {
 					System.out.println("Address Book is empty");
@@ -87,7 +87,7 @@ public class AddressBookManagement
 		boolean run = true;
 		while (run == true) {
 			System.out.println(
-					"select choice\n1.Add 2.Edit 3.Display 4.Delete 5.Sort By Last Name 6.Go to Main Page");
+					"select choice\n1.Add 2.Edit 3.Display 4.Delete 5.Sort 6.Go to Main Page");
 			int i = OopsUtility.intValue();
 			switch (i) {
 			case 1:
@@ -99,20 +99,20 @@ public class AddressBookManagement
 				run = true;
 				break;
 			case 3:
-				addressBook.displayDetails();
+				AddressBook.displayDetails();
 				run = true;
 				break;
 			case 4:
-				addressBook.deletePerson();
+				AddressBook.deletePerson();
 				run = true;
 				break;
 			case 5:
-				addressBook.sortPerson();
+				AddressBook.sortPerson();
 				run = true;
 				break;
 		
 			case 6:
-				AddressBookApplication.main(null);
+				MyAddressBookApp.main(null);
 				run = false;
 				break;
 			default:
@@ -130,7 +130,7 @@ public class AddressBookManagement
 			String filename = file.getName();
 			if (ch_book.equals(filename)) {
 				try {
-					String json = objectMapper.writeValueAsString(AddressBook.getLiOfPerson());
+					String json = objectMapper.writeValueAsString(AddressBook.getPersonlist());
 					OopsUtility.writeFile(json, filename);
 					System.out.println("Address book details saved");
 					flag = 1;
@@ -156,7 +156,7 @@ public class AddressBookManagement
 		boolean rs = file.createNewFile();
 		if (rs) {
 			System.out.println("File is created");
-			String json = objectMapper.writeValueAsString(AddressBook.getLiOfPerson());
+			String json = objectMapper.writeValueAsString(AddressBook.getPersonlist());
 			OopsUtility.writeFile(json, book);
 			System.out.println("Address book details saved");
 		} else {

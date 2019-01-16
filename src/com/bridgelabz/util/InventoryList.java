@@ -1,4 +1,4 @@
-package com.bridgelabz.oopsprograms;
+package com.bridgelabz.util;
 
 import java.util.ArrayList;
 import java.util.List;

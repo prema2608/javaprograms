@@ -6,13 +6,17 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import com.bridgelabz.oopsprograms.Inventory;
-import com.bridgelabz.oopsprograms.InventoryList;
+import org.codehaus.jackson.JsonGenerationException;
+import org.codehaus.jackson.JsonParseException;
+import org.codehaus.jackson.map.JsonMappingException;
+import org.codehaus.jackson.map.ObjectMapper;
+import org.codehaus.jackson.map.type.CollectionType;
 
 public class OopsUtility 
 {
@@ -206,6 +210,31 @@ public static void write(String json) throws IOException
         bw.write(json);
         bw.flush();
     }
+
+
+
+public static void writeFile(String json, String fileName) throws IOException {
+	FileWriter fw = new FileWriter(fileName);
+	@SuppressWarnings("resource")
+	BufferedWriter bw = new BufferedWriter(fw);
+	bw.write(json);
+	bw.flush();
+}
+
+//clinical managment
+static ObjectMapper objectMapper = new ObjectMapper();
+public static <T> List<T> userReadValue(String str, Class<?> cls)
+        throws JsonParseException, JsonMappingException, IOException {
+    CollectionType colletion = objectMapper.getTypeFactory().constructCollectionType(ArrayList.class, cls);
+    return objectMapper.readValue(str, colletion);
+}
+
+public static <T> String userWriteValueAsString(List<T> list)
+        throws JsonGenerationException, JsonMappingException, IOException {
+    return objectMapper.writeValueAsString(list);
+}
+
+
 
 public static Inventory getInventoryValues() {
 	Inventory inventory = new Inventory();
