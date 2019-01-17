@@ -81,13 +81,14 @@ public class Linkedlist {
         Node currNode = list.head;
         int i=0;
         int[] str =new int[100];
-        while (currNode != null) {
-            if(currNode.data!=null)    {
+        while (currNode.next != null || currNode.data == null) {
+            if(currNode.data !=null)    {
                 kz=Integer.parseInt(currNode.data);
                 str[i]=kz;
                 i++;
-                currNode = currNode.next;
             }
+            currNode = currNode.next;
+
             }
 		
 		return str;

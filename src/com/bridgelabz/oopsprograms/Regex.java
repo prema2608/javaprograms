@@ -3,6 +3,11 @@ package com.bridgelabz.oopsprograms;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 
 import com.bridgelabz.util.OopsUtility;
 
@@ -35,9 +40,12 @@ public class Regex
 				System.out.println("Enter your Phone number");
 				String numb = OopsUtility.stringValue();
 
-				System.out.println("Enter the date");
-				String date = OopsUtility.stringValue();
-                
+				
+				
+				DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+				LocalDate localDate = LocalDate.now();
+				
+			   String date= dtf.format(localDate);
 			
               
 				String result = OopsUtility.patternMatch(fname, fullname, numb, date, line);

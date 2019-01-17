@@ -6,6 +6,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -108,12 +109,11 @@ public class OopsUtility
 	
 	public static String patternMatch(String fname , String fullname, String numb, String date,String line )
 	{
-	   String regex1 = "<<name>>";
-	   String regex2= "<<fullname>>";
-	   String regex3 = "xxxxxxxxxx";
-	   String regex4 = "XX/XX/XXXX";
-	    
-	   
+	   String regex1 = "<{2}+\\w+>{2}";
+	   String regex2= "<{2}+\\w+ +\\w+>{2}";
+	   String regex3 = "x{10}";
+	   String regex4 = "<{2}\\d{2}+/+\\d{2}+/\\d{4}+>{2}";
+	 
 	
          Pattern p = Pattern.compile(regex1);
           Matcher m = p.matcher(line); 
@@ -221,20 +221,6 @@ public static void writeFile(String json, String fileName) throws IOException {
 	bw.flush();
 }
 
-//clinical managment
-static ObjectMapper objectMapper = new ObjectMapper();
-public static <T> List<T> userReadValue(String str, Class<?> cls)
-        throws JsonParseException, JsonMappingException, IOException {
-    CollectionType colletion = objectMapper.getTypeFactory().constructCollectionType(ArrayList.class, cls);
-    return objectMapper.readValue(str, colletion);
-}
-
-public static <T> String userWriteValueAsString(List<T> list)
-        throws JsonGenerationException, JsonMappingException, IOException {
-    return objectMapper.writeValueAsString(list);
-}
-
-
 
 public static Inventory getInventoryValues() {
 	Inventory inventory = new Inventory();
@@ -275,10 +261,24 @@ public class Card {
     }
 
     public String toString(){
-        return "\n"+value + " of "+ suit;
+        return suit ;
     }
 }
 	
+
+
+//clinical managment
+static ObjectMapper objectMapper = new ObjectMapper();
+public static <T> List<T> userReadValue(String str, Class<?> cls)
+      throws JsonParseException, JsonMappingException, IOException {
+  CollectionType colletion = objectMapper.getTypeFactory().constructCollectionType(ArrayList.class, cls);
+  return objectMapper.readValue(str, colletion);
+}
+
+public static <T> String userWriteValueAsString(List<T> list)
+      throws JsonGenerationException, JsonMappingException, IOException {
+  return objectMapper.writeValueAsString(list);
+}
 	
 }
 

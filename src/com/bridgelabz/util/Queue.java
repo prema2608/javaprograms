@@ -10,8 +10,7 @@ class Node<T>
     
     public Node()
     {
-        link = null;
-       
+        link = null; 
     }  
     
    

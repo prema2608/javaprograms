@@ -8,16 +8,14 @@ import java.util.List;
 import org.codehaus.jackson.JsonGenerationException;
 import org.codehaus.jackson.map.JsonMappingException;
 
-import com.bridgelabz.util.AddressDetails;
 import com.bridgelabz.util.AppointmentDetails;
 import com.bridgelabz.util.DoctorDetails;
 import com.bridgelabz.util.OopsUtility;
 import com.bridgelabz.util.PatientDetails;
-import com.bridgelabz.util.PersonDetails;
 
 public class CliniqueManagmnt 
 {
-		List<PatientDetails> patientlist = new ArrayList<PatientDetails>();
+		static List<PatientDetails> patientlist = new ArrayList<PatientDetails>();
 		static List<DoctorDetails> doctorlist = new ArrayList<DoctorDetails>();
 		List<AppointmentDetails> appointmntlist = new ArrayList<AppointmentDetails>();
       static DoctorDetails doctorsinfo =null;
@@ -91,15 +89,10 @@ public class CliniqueManagmnt
 				patientsinfo.setpAge(OopsUtility.intValue());
 
 				doctorlist.add(doctorsinfo);
-		 }
-}
-			//	System.out.println("-----------------------------------------------------");
-//
-//				
-//				String json = OopsUtility.userWriteValueAsString();
-//		        OopsUtility.writeFile(json, Doctorsfile);
-//				
-//				
-//	}
+				String json = OopsUtility.userWriteValueAsString(patientlist);
+		        OopsUtility.writeFile(json, patientsfile);
+		 }		
+				
+	}
 
 

@@ -61,6 +61,7 @@ public class UnOrderedList {
 					case 3:
 
 						System.exit(0);
+						System.out.println("Exited");
 						break;
 
 					default:

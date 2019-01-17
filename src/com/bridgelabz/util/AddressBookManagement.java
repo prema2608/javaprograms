@@ -17,14 +17,10 @@ public class AddressBookManagement
 	List<AddressBook> bookmangmnt = new ArrayList<AddressBook>();
 	AddressBook addrsbook = new AddressBook();
 
-	
-
-	//AddressBookApplication addressBookApplication = null;
 	AddressBook addressBook = null;
 	static List<AddressBook> liOfAddressBook = new ArrayList<AddressBook>();
 	static ObjectMapper objectMapper = new ObjectMapper();
-//	static List<PersonDetails> personlist = new ArrayList<PersonDetails>();
-	File[] arrayOfFiles = new File(System.getProperty("user.dir")).listFiles();
+    File[] arrayOfFiles = new File(System.getProperty("user.dir")).listFiles();
 	static final String str= "/home/admin1/Documents/Prema/My Programs/javaprograms/";
 	static String bookName = null;
 

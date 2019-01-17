@@ -53,7 +53,7 @@ public class BankCounter
 				break;
 			case 4:
 				System.exit(0);
-				System.out.println("Thank you");
+				System.out.println("Thank you1");
 				System.out.println();
 			default: 
 				System.out.println("You entered wrong choice");
