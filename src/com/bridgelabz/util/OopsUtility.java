@@ -6,7 +6,6 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -145,7 +144,8 @@ public class OopsUtility
 	public static String readFile(String str) throws FileNotFoundException {
         FileReader f = new FileReader(str);
        
-        BufferedReader read = new BufferedReader(f);
+        @SuppressWarnings("resource")
+		BufferedReader read = new BufferedReader(f);
         String line = "";
         try {
             String word="";
