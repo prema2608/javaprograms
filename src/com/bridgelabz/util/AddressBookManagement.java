@@ -88,10 +88,12 @@ public class AddressBookManagement
 			switch (i) {
 			case 1:
 				AddressBook.addPerson();
+				saveBook();
 				run = true;
 				break;
 			case 2:
 				AddressBook.editPerson();
+				saveBook();
 				run = true;
 				break;
 			case 3:
@@ -100,6 +102,7 @@ public class AddressBookManagement
 				break;
 			case 4:
 				AddressBook.deletePerson();
+				saveBook();
 				run = true;
 				break;
 			case 5:

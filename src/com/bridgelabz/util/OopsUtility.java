@@ -234,40 +234,43 @@ public static Inventory getInventoryValues() {
 	
 }
 
-//Deck of cards
-public class Card {
 
-
-    private String suit;
-    private String value;
-
-
-    public Card(String suit, String value){
-        this.suit = suit;
-        this.value = value;
-    }
-    public Card(){}
-    public String getSuit(){
-        return suit;
-    }
-    public void setSuit(String suit){
-        this.suit = suit;
-    }
-    public String getValue(){
-        return value;
-    }
-    public void setValue(String value){
-        this.value = value;
-    }
-
-    public String toString(){
-        return suit ;
-    }
+public static QueueLinkedList<QueueLinkedList<String>> cardQueue(String[] deck )
+{
+	QueueLinkedList<QueueLinkedList<String>> mainQueue = new QueueLinkedList<QueueLinkedList<String>>();
+	QueueLinkedList<String> queueLinkedList = new QueueLinkedList<String>();
+	System.out.println("Total no. of deck of cards are " + deck.length);
+	for (int i = 0; i < 4; i++) {
+		String[] demo = new String[9];
+		for (int j = 0; j < 9; j++) {
+			demo[j] = deck[i + j * 4];
+		}
+		String[] str2 = AlgorithmUtility.sort(demo);
+		for (int k = 0; k < str2.length; k++) {
+			queueLinkedList.enqueue(str2[k]);
+		}
+		mainQueue.enqueue(queueLinkedList);
+		queueLinkedList = new QueueLinkedList<String>();
+		continue;
+	}
+	return mainQueue;
 }
-	
+public static void cardDisplay(QueueLinkedList<QueueLinkedList<String>> mainQueue)
+{
+	for (int i = 0; i < mainQueue.getSize(); i++) {
+		QueueLinkedList<String> queue2 = mainQueue.remove();
+		System.out.println("---------------------------------------- Person " + (i + 1)
+				+ " -------------------------------------------");
+		for (int j = 0; j < queue2.getSize(); j++) {
+			System.out.print(queue2.remove() + " ,");
+		}
+		System.out.println();
+	}
+}
 
 
-//clinical managment
+
+//used in clinical managment
 static ObjectMapper objectMapper = new ObjectMapper();
 public static <T> List<T> userReadValue(String str, Class<?> cls)
       throws JsonParseException, JsonMappingException, IOException {

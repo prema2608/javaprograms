@@ -1,23 +1,23 @@
-package com.bridgelabz.oopsprograms;
+package com.bridgelabz.util;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
 
 import org.codehaus.jackson.JsonGenerationException;
 import org.codehaus.jackson.map.JsonMappingException;
-
-import com.bridgelabz.util.AppointmentDetails;
-import com.bridgelabz.util.DoctorDetails;
-import com.bridgelabz.util.OopsUtility;
-import com.bridgelabz.util.PatientDetails;
-import com.bridgelabz.util.Searching;
 
 public class CliniqueManagmnt 
 {
 	public static List<PatientDetails> patientlist = new ArrayList<PatientDetails>();
 	public static List<DoctorDetails> doctorlist = new ArrayList<DoctorDetails>();
-	public static List<AppointmentDetails> appointmntlist = new ArrayList<AppointmentDetails>();
+	public static List<ApointmentDetails> appointmntlist = new ArrayList<ApointmentDetails>();
 	static DoctorDetails doctorsinfo =null;
 	static PatientDetails patientsinfo = null;
 
@@ -126,7 +126,7 @@ public class CliniqueManagmnt
 
 		case 1:
 		{
-			System.out.println("1. To search Doctor By Name 2.By ID 3.By Availability  4.By Specilization");
+			System.out.println("1. To search Doctor By Name  2.By Availability  3.By Specilization");
 			int choice = OopsUtility.intValue();
 			System.out.println("Enter your choice");
 			switch(choice)
@@ -142,18 +142,8 @@ public class CliniqueManagmnt
 					System.out.println("Doctor is not present");	
 			}break;
 
-			case 2:  
-			{
-				System.out.println("Searching by id");
-				List<DoctorDetails> doctorid = Searching.searchByID();
-				if (!doctorid.isEmpty())
-					System.out.println("Doctor is present");
-				else
-					System.out.println("Doctor is not present");
-
-
-			}break;
-			case 3:
+			
+			case 2:
 			{
 				System.out.println("Searching by Avalability");
 				List<DoctorDetails> doctoravalb = Searching.searchByAvailability();
@@ -162,7 +152,7 @@ public class CliniqueManagmnt
 				else
 					System.out.println("Doctor is not present");
 			}break;
-			case 4:
+			case 3:
 			{
 				System.out.println("Searching by Specilization");
 				List<DoctorDetails> doctorspec= Searching.searchBySpecialization();
@@ -194,8 +184,8 @@ public class CliniqueManagmnt
 			case 2:
 			{
 				System.out.println("Searching by number");
-				List<PatientDetails> patientid = Searching.searchByPnum();
-				if (!patientid.isEmpty())
+				PatientDetails patientnum = Searching.searchByPnum();
+				if (patientnum!=null)
 					System.out.println("patient is present");
 				else
 					System.out.println("patient is not present");
@@ -212,7 +202,7 @@ public class CliniqueManagmnt
 
 
 	//Display Doctor
-	public static void displayDoctor()
+	public static void displayDoctor(List<DoctorDetails> doctorlist)
 	{
 		for(DoctorDetails doctor:doctorlist)
 		{
@@ -225,37 +215,187 @@ public class CliniqueManagmnt
 		}
 
 	}
+	
+	//taking appointments
 
+	public static void takeAppointment() throws IOException {
+		String string = OopsUtility.readFile(Appointmentsfile);
+		try {
+			appointmntlist = OopsUtility.userReadValue(string, ApointmentDetails.class);
+			System.out.println("File is not empty");
 
-
-
-
-
-	public static void takeAppointment() throws IOException
-	{
-		System.out.println("Enter the Patients phone number:");
-
-
-		List<PatientDetails> patientnum = Searching.searchByPnum();
-
-		if (!patientnum.isEmpty())
-		{
-			
-			System.out.println("patients details found..");
-
+		} catch (Exception e) {
+			System.out.println("File is empty");
 		}
-		else
-		{
-			System.out.println("Take Appointment....!!!");	
+		PatientDetails patient = (PatientDetails) Searching.searchByPnum();
+		if (patient != null) {
+			System.out.println("Patient data already exist!!\nTaking appointment now....");
+			appoint(patient);
+			String json = OopsUtility.userWriteValueAsString(appointmntlist);
+			OopsUtility.writeFile(json, Appointmentsfile);
+		} else {
+			System.out.println("Patient data doesnot exist\nPlease first add patient detials on to database");
 		}
+}
+	
+	
+	
+	public static void appoint(PatientDetails patient) throws IOException {
+		System.out.println("Search doctor by- 1:Name 2:Speciality 3:Availability");
+		int choice = OopsUtility.intValue();
+		switch (choice) {
+		case 1:
+			List<DoctorDetails> doctorList = Searching.searchByName();
+			displayDoctor(doctorList);
+			searchDoc(doctorList, patient);
+			break;
+		case 2:
+			List<DoctorDetails> doctorList1 = Searching.searchBySpecialization();
+			displayDoctor(doctorList1);
+			searchDoc(doctorList1, patient);
+			break;
+		case 3:
+			List<DoctorDetails> doctorList2 = Searching.searchByAvailability();
+			displayDoctor(doctorList2);
+			searchDoc(doctorList2, patient);
+			break;
+		}
+	}
 
 
+	
+	public static void searchDoc(List<DoctorDetails> doctorList, PatientDetails patient) {
+		System.out.println("Enter id");
+		int id = OopsUtility.intValue();
+		int flag = 1;
+		try {
+			for (DoctorDetails doctor : doctorList) {
+		if (id == doctor.getdId()) {
+		for (ApointmentDetails appointment : appointmntlist) {
+				if (doctor.getDname().equals(appointment.getDoctorName())) {
+					List<PatientDetails> patientAppointmentList = appointment.getApplist();
+				if (patientAppointmentList.size() < 5) {
+				for (PatientDetails patient2 : patientAppointmentList) {
+				if (patient2.getpId() == patient.getpId()) {
+					System.out.println("Appointment already set for today for this doctor cannot set again");
+						flag = 0;
+								break;
+							} else {
+								patientAppointmentList.add(patient);
+							appointment.setApplist(patientAppointmentList);
+								System.out.println("Appointment is set");
+					flag = 0;
+						break;
+									}
+						}
+							} else {
+						System.out.println(
+										"Appointment is full !!! Please wait for the next schedule or Select different doctor");
+								flag = 0;
+							}
+							break;
+						}
+					}
+					if (flag == 1) 
+					{
+						ApointmentDetails appointment2 = new ApointmentDetails();
+				List<PatientDetails> patientList1 = new ArrayList<PatientDetails>();
+				patientList1.add(patient);
+			  appointment2.setDoctorName(doctor.getDname());
+				appointment2.setApplist(patientList1);
+				appointmntlist.add(appointment2);
+				System.out.println("Appointment is set");
+				
+				}
+			}
+			}
+		} catch (Exception e) {
+			System.out.println("Enter the correct id");
+		}
+	
+	}
+	
+	//famous doctor
+	public static void famousDoctor() throws IOException {
+		String string = OopsUtility.readFile(Appointmentsfile);
+		Map<String, Integer> map = new HashMap<>();
+		try {
+			appointmntlist = OopsUtility.userReadValue(string, ApointmentDetails.class);
+			for (int i = 0; i < appointmntlist.size(); i++) {
+				ApointmentDetails appointment = appointmntlist.get(i);
+				String doctorName = appointment.getDoctorName();
+				Integer numberOfAppointments = appointment.getApplist().size();
+				map.put(doctorName, numberOfAppointments);
+			}
+			int maxValue = Collections.max(map.values());
+			for (Entry<String, Integer> entry : map.entrySet()) {
+				if (entry.getValue() == maxValue) {
+					System.out.println(
+							"Famous Doctor Name: " + entry.getKey() + "\nNo of appointments: " + entry.getValue());
+				}
+			}
+		} catch (Exception e) {
+			System.out.println("There are no doctors in the Hospital system.");
+		}
+	}
 
-
-
-
-
+	public static void famousSpecialist() throws IOException {
+		String string = OopsUtility.readFile(Doctorsfile);
+		List<String> list = new ArrayList<>();
+		try {
+			doctorlist = OopsUtility.userReadValue(string, DoctorDetails.class);
+			for (DoctorDetails doctor : doctorlist) {
+				for (DoctorDetails doctor1 : doctorlist) {
+					if (doctor.getdSpecification().equals(doctor1.getdSpecification())) {
+						list.add(doctor.getdSpecification());
+					}
+				}
+			}
+			int max = 0;
+			int curr = 0;
+			String currKey = null;
+			Set<String> unique = new HashSet<String>(list);
+			for (String key : unique) {
+				curr = Collections.frequency(list, key);
+				if (max < curr) {
+					max = curr;
+					currKey = key;
+				}
+			}
+			System.out.println(currKey + " is the famous specialization.");
+		} catch (Exception e) {
+			System.out.println("There are no doctors in the Hospital system.");
+		}
 	}
 }
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 

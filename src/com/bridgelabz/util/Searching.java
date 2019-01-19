@@ -4,8 +4,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.bridgelabz.oopsprograms.CliniqueManagmnt;
-
 public class Searching
 {
 	public static List<DoctorDetails> searchByName() throws IOException {
@@ -126,25 +124,25 @@ public class Searching
 	}
 
 
-	public static List<PatientDetails> searchByPnum() throws IOException {
+	public static PatientDetails searchByPnum() throws IOException {
 
 		String string = OopsUtility.readFile(CliniqueManagmnt.patientsfile);
 		try {
 			CliniqueManagmnt.patientlist = OopsUtility.userReadValue(string, PatientDetails.class);
-			List<PatientDetails> list = new ArrayList<>();
+			//List<PatientDetails> list = new ArrayList<>();
 			System.out.println("Enter the patient's number to be searched");
 			long num = OopsUtility.longValue();
 			System.out.println();
 			for ( PatientDetails  patientnum: CliniqueManagmnt.patientlist) {
-				if (num==(patientnum.getpId())) {
-					list.add(patientnum);
+				if (num==(patientnum.getMobNum())) {
+					return patientnum;
 				}
 			}
-			return list;
+			
 		} catch (Exception e) {
 			System.out.println("File is empty!");
-			return null;
 		}
+		return null;
 	}
 
 
