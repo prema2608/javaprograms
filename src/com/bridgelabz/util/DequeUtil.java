@@ -2,6 +2,7 @@ package com.bridgelabz.util;
 
 public class DequeUtil<E>
 {
+	@SuppressWarnings("hiding")
 	public class Deque<E> 
 	{
 		public E data;
@@ -34,6 +35,7 @@ public class DequeUtil<E>
 			return size;
 		}
 	//add front
+	@SuppressWarnings("null")
 	public void addFront(E c)
 	{
 		if(front==null) //if no element in list

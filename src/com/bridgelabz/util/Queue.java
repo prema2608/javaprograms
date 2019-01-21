@@ -5,7 +5,8 @@ import java.util.NoSuchElementException;
 class Node<T>
 {
 	protected T data;
-    protected Node link;
+    @SuppressWarnings("rawtypes")
+	protected Node link;
  
     
     public Node()
@@ -14,7 +15,8 @@ class Node<T>
     }  
     
    
-    public Node(T d,Node n)
+    @SuppressWarnings("rawtypes")
+	public Node(T d,Node n)
     {
         data = d;
         link = n;
@@ -27,13 +29,14 @@ class Node<T>
     }   
     
    	/*  Function to get link to next node  */
-   	public Node getLink()
+   	@SuppressWarnings("rawtypes")
+	public Node getLink()
     {
      	return link;
     }  
     
 	/*  Function to set link to next Node  */
-    public void setLink(Node n)
+    public void setLink(@SuppressWarnings("rawtypes") Node n)
     {
         link = n;
     }  
@@ -49,6 +52,7 @@ class Node<T>
 /*  Class linkedQueue  */
 public class Queue
 {
+	@SuppressWarnings("rawtypes")
 	public Node front, rear;
     public int size;
  
@@ -75,7 +79,8 @@ public class Queue
     /*  Function to insert an element to the queue */
     public void enqueue(int data)
     {
-        Node node = new Node(data, null);
+        @SuppressWarnings({ "unchecked", "rawtypes" })
+		Node node = new Node(data, null);
         if (rear == null)
         {
             front = node;
@@ -90,13 +95,15 @@ public class Queue
     }   
     
     /*  Function to remove front element from the queue */
-   	public <T> T remove()
+   	@SuppressWarnings("unchecked")
+	public <T> T remove()
     {
         if (isEmpty())
 		{
         	throw new NoSuchElementException("Underflow Exception");
 		}
-        Node ptr = front;
+        @SuppressWarnings("rawtypes")
+		Node ptr = front;
         front = ptr.getLink();        
         if (front == null)
 		{

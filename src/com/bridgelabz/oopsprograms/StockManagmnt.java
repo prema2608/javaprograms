@@ -39,6 +39,7 @@ public class StockManagmnt
 			StockPortfolio.totalStockValue();
 			break;
 		}
+		
 		default:break;
 		}
 		

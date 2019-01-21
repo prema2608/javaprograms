@@ -18,7 +18,8 @@ public class Array2D
 	public static void main(String[] args)
 	{
 		FunctionalUtility u=new FunctionalUtility(); 
-		 Scanner sc = new Scanner(System.in);
+		 @SuppressWarnings("resource")
+		Scanner sc = new Scanner(System.in);
 
 		
 		//calling methods

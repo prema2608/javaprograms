@@ -7,8 +7,6 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.Set;
 
-import com.bridgelabz.algorithmprograms.VendingMachine;
-
 public class AlgorithmUtility<T> {
 	// creating our own scanner class
 	static Scanner sc = new Scanner(System.in);
@@ -210,6 +208,7 @@ public class AlgorithmUtility<T> {
 	// Insertion sort
 
 	// method to sort array of strings using insertion sort
+	@SuppressWarnings("hiding")
 	public  <T extends Comparable<T>>boolean insertionSort(T[] ary)
 	{
 			boolean insert = false;
@@ -432,6 +431,7 @@ return result;
 //binaryOfString
 
 //method to binary search for array of string
+	@SuppressWarnings("hiding")
 	public <T extends Comparable<T>> void binaryOfString(T[] array, T search) {
 
 		// boolean binInt = false;

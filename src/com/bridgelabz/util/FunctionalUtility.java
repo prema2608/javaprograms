@@ -4,14 +4,13 @@ import java.io.PrintWriter;
 import java.util.Random;
 import java.util.Scanner;
 
-import com.bridgelabz.functionalprograms.*;
-
 public class FunctionalUtility {
 
 //replacestring
 	// method to replace string with String as input
 	public void replaceString(String str1) {
 
+		@SuppressWarnings("resource")
 		Scanner s = new Scanner(System.in);
 		String s1 = s.nextLine();
 
@@ -185,6 +184,7 @@ public class FunctionalUtility {
 	{
 		Integer a[][] = new Integer[m][n];
 
+		@SuppressWarnings("resource")
 		Scanner sc = new Scanner(System.in);
 		System.out.println();
 		System.out.println("Integer Array");
@@ -201,6 +201,7 @@ public class FunctionalUtility {
 	public static Double[][] arrayDouble(int m, int n) {
 		Double b[][] = new Double[m][n];
 	
+		@SuppressWarnings("resource")
 		Scanner sc = new Scanner(System.in);
 		System.out.println();
 		System.out.println("Double Array");
@@ -217,6 +218,7 @@ public class FunctionalUtility {
 	public static String[][] arrayBoolean(int m, int n) {
 		String c[][] = new String[m][n];
 
+		@SuppressWarnings("resource")
 		Scanner sc = new Scanner(System.in);
 		System.out.println();
 		System.out.println("Boolean Array");
@@ -229,42 +231,6 @@ public class FunctionalUtility {
 		return c;
 	}
 
-//	public static void display(int[][] a, double[][] b, String[][] c, int m, int n) {
-//		PrintWriter pw = new PrintWriter(System.out, true);
-//
-//// integers
-//		System.out.println();
-//		pw.println("2D ARRAY INTEGER");
-//
-//		for (int i = 0; i < m; i++) {
-//			for (int j = 0; j < n; j++) {
-//				pw.print("\t" + a[i][j] + " ");
-//			}
-//			pw.println("\t");
-//		}
-//
-////double
-//		System.out.println();
-//		pw.println("2D ARRAY DOUBLE");
-//
-//		for (int i = 0; i < m; i++) {
-//			for (int j = 0; j < n; j++) {
-//				pw.print("\t" + b[i][j] + " ");
-//			}
-//			pw.println("\t");
-//		}
-//
-//// boolean
-//		System.out.println();
-//		pw.println("2D ARRAY BOOLEAN");
-//
-//		for (int i = 0; i < m; i++) {
-//			for (int j = 0; j < n; j++) {
-//				pw.print("\t" + c[i][j] + " ");
-//			}
-//			pw.println("\t");
-//		}
-//	}
 
 	public static <E> void diply(E[][] genericArray, int row, int column) {
 		PrintWriter pw = new PrintWriter(System.out, true);
@@ -330,6 +296,7 @@ public class FunctionalUtility {
 
 		double dis;
 
+		@SuppressWarnings("resource")
 		Scanner sc = new Scanner(System.in);
 
 		System.out.println("enter x1 point");
@@ -362,6 +329,7 @@ public class FunctionalUtility {
 
 		double rt1, rt2, Q;
 
+		@SuppressWarnings("resource")
 		Scanner s = new Scanner(System.in);
 
 		System.out.println("Given quadratic equation:ax^2 + bx + c");
@@ -410,6 +378,7 @@ public class FunctionalUtility {
 // WindChill
 //method the find the cold temp 
 	public void windChill() {
+		@SuppressWarnings("resource")
 		Scanner sc = new Scanner(System.in);
 
 		System.out.print("Enter the temp in Fahrenheit");
